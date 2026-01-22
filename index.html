@@ -1,41 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PureFinish SoCal</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PF SoCal — Rinseless Mobile Detailing</title>
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preload" href="assets/logo.svg" as="image" />
+  <link rel="preload" href="assets/hero-car.png" as="image" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
-<header class="header">
-  <div class="wrap header__inner">
-    <div class="logo">
-      <img src="assets/purefinish-logo.png" class="pf-logo">
-      <div>
-        <div class="logo__name">PureFinish</div>
-        <div class="logo__tag">PREMIUM AUTO DETAILING</div>
-      </div>
-    </div>
-  </div>
-</header>
 
-<section class="hero">
-  <div class="wrap hero__grid">
-    <div class="hero__left">
-      <div class="kicker"><span></span>WE WASH, YOU SHINE</div>
-      <h1>Shining Cars,<br>Happy Drivers</h1>
-      <p>Clean, shine, and care – your car deserves the best.</p>
-      <div class="actions">
-        <a class="btn">Book Now</a>
-        <a class="btn ghost">Video ▶</a>
+<body>
+  <!-- Top header -->
+  <header class="top">
+    <img class="logo" src="assets/logo.svg" alt="PF SoCal" />
+  </header>
+
+  <main class="page" id="home">
+    <!-- Hero copy -->
+    <section class="hero" aria-label="Hero">
+      <h1 class="hero__title">Rinseless<br/>Mobile Detailing</h1>
+      <p class="hero__subtitle">Premium Auto Care • We Come To You</p>
+
+      <!-- Car hero artwork -->
+      <div class="hero__art" aria-hidden="true">
+        <img class="hero__car" src="assets/hero-car.png" alt="" />
       </div>
-    </div>
-    <div class="hero__right">
-      <img src="assets/car.png" class="car">
-    </div>
-  </div>
-</section>
-  <script src="app.js"></script>
+
+      <!-- Primary actions -->
+      <div class="hero__actions" role="group" aria-label="Primary actions">
+        <a class="btn btn--primary" href="#book" data-nav="book">Book Now</a>
+        <a class="btn btn--ghost" href="#pricing" data-nav="pricing">Check Packages</a>
+      </div>
+    </section>
+
+    <!-- Sections (simple placeholders so nav has targets) -->
+    <section class="section" id="pricing" aria-label="Pricing">
+      <div class="section__inner">
+        <h2 class="section__title">Packages</h2>
+        <p class="section__muted">Add your package cards here (Rinse &amp; Gloss, Paint Reset, Paint Lock, plus interior add-ons).</p>
+      </div>
+    </section>
+
+    <section class="section" id="book" aria-label="Booking">
+      <div class="section__inner">
+        <h2 class="section__title">Booking</h2>
+        <p class="section__muted">Connect your booking system here (Calendly, Square, Acuity, or a custom form).</p>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-label="Contact">
+      <div class="section__inner">
+        <h2 class="section__title">Contact</h2>
+        <p class="section__muted">Add phone, SMS, email, Instagram, and service area.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__muted">© <span id="year"></span> PF SoCal. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <!-- Floating bottom nav (mobile-first) -->
+  <nav class="dock" aria-label="Primary navigation">
+    <a class="dock__item is-active" href="#home" data-target="home" aria-current="page">
+      <span class="dock__icon" aria-hidden="true"></span>
+      <span class="dock__label">Home</span>
+    </a>
+    <a class="dock__item" href="#pricing" data-target="pricing">
+      <span class="dock__icon" aria-hidden="true"></span>
+      <span class="dock__label">Pricing</span>
+    </a>
+    <a class="dock__item" href="#book" data-target="book">
+      <span class="dock__icon" aria-hidden="true"></span>
+      <span class="dock__label">Book</span>
+    </a>
+    <a class="dock__item" href="#contact" data-target="contact">
+      <span class="dock__icon" aria-hidden="true"></span>
+      <span class="dock__label">Contact</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
