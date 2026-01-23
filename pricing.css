@@ -2,7 +2,7 @@
 
 :root{
   --bg:#000000;
-  --panel: #000000;
+  --panel:#0c0f14;
   --line:rgba(255,255,255,0.10);
   --text:#ffffff;
   --muted:rgba(255,255,255,0.65);
@@ -10,7 +10,7 @@
 
   /* brand accent */
   --accent:#2596be;
-  --accentSoft: rgb(0, 0, 0);
+  --accentSoft:rgba(37,150,190,0.18);
 
   --radius:24px;
   --shadow:0 22px 70px rgba(0,0,0,0.55);
@@ -63,8 +63,8 @@ html, body{
 
 .heroCard{
   width:min(920px, 100%);
-  background:linear-gradient(180deg, rgb(24, 169, 220), rgb(0, 0, 0));
-  border:1px solid rgb(0, 0, 0);
+  background:linear-gradient(180deg, rgb(0, 0, 0), rgb(0, 0, 0));
+  border:1px solid rgb(24, 169, 220);
   border-radius:28px;
   padding:26px 22px;
   text-align:center;
@@ -232,7 +232,7 @@ html, body{
   width:280px;
   height:280px;
   border-radius:50%;
-  background:radial-gradient(circle, rgba(37,150,190,0.24), transparent 60%);
+  background:radial-gradient(circle, rgb(24, 169, 220), transparent 60%);
   filter:blur(2px);
 }
 
