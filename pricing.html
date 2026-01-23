@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing - Pure Finish SoCal</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="page">
+<header class="navbar navbar-solid" id="siteHeader">
+    <div class="logo">
+        <div class="logo-text">
+            <h2>Pure Finish</h2>
+            <span>SoCal</span>
+        </div>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="pricing.html" class="active">Pricing</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+
+    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false" type="button">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+</header>
+
+<main class="page-shell">
+    <div class="container page-hero">
+        <h1>Packages & Pricing</h1>
+        <p>We’ll plug your real packages here next (Interior, Exterior, Full Detail, Ceramic, etc.).</p>
+
+        <div class="page-actions">
+            <button class="btn-primary" onclick="goBooking()">Book Now</button>
+            <button class="btn-primary btn-primary-outline" onclick="location.href='contact.html'">Ask a Question</button>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <div class="footer-mark">
+                <div class="footer-logo-text">
+                    <h3>Pure Finish</h3>
+                    <span>SoCal</span>
+                </div>
+            </div>
+
+            <p class="footer-desc">
+                Mobile car detailing with a premium finish — clean, gloss, and protection done right.
+            </p>
+
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="pricing.html">Pricing</a>
+            <a href="booking.html">Booking</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="tel:+10000000000"><i class="fa-solid fa-phone"></i> (000) 000-0000</a>
+            <a href="mailto:info@purefinishsocal.com"><i class="fa-solid fa-envelope"></i> info@purefinishsocal.com</a>
+            <span class="footer-meta"><i class="fa-solid fa-location-dot"></i> Serving SoCal</span>
+        </div>
+
+        <div class="footer-col">
+            <h4>Hours</h4>
+            <span class="footer-meta">Mon–Sat: 9am – 6pm</span>
+            <span class="footer-meta">Sunday: By Appointment</span>
+            <button class="footer-cta" onclick="goBooking()">Book Now</button>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <span>© <span id="year"></span> Pure Finish SoCal. All rights reserved.</span>
+        <span class="footer-sep">•</span>
+        <span>Luxury mobile detailing</span>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

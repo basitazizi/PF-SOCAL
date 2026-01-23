@@ -1,13 +1,3 @@
-function bookNow() {
-    // Later: window.location.href = 'booking.html';
-    alert("Booking coming next — we’ll link this to your booking page.");
-}
-
-function goPackages() {
-    // Later: window.location.href = 'pricing.html';
-    alert("Packages coming next — we’ll link this to your pricing page.");
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     // Footer year
     const yearEl = document.getElementById('year');
@@ -35,17 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sticky header effect
+    // Home header style on scroll
     window.addEventListener('scroll', () => {
-        const header = document.querySelector('.navbar');
+        const header = document.getElementById('siteHeader');
         if (!header) return;
 
         if (window.scrollY > 50) {
             header.style.backgroundColor = 'rgba(15, 16, 20, 0.95)';
             header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.5)';
+            header.style.backdropFilter = 'blur(10px)';
         } else {
             header.style.backgroundColor = 'transparent';
             header.style.boxShadow = 'none';
+            header.style.backdropFilter = 'none';
         }
     }, { passive: true });
 });
