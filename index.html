@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pure Finish - SoCal</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
 
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
 <header class="navbar">
   <div class="logo">
-    <!-- removed the car icon -->
+    <!-- Removed car icon -->
     <div class="logo-text">
       <h2>Pure Finish</h2>
       <span>SoCal</span>
@@ -22,27 +23,28 @@
   </div>
 
   <nav class="nav-links" id="navLinks">
-    <a href="#about" class="active">Home</a>
-    <a href="#services">Pricing</a>
+    <a href="#home" class="active">Home</a>
+    <a href="#pricing">Pricing</a>
     <a href="#booking">Booking</a>
-    <a href="#contacts">Contact Us</a>
+    <a href="#contact">Contact Us</a>
   </nav>
 
   <div class="social-icons">
-    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
   </div>
 
-  <div class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false">
+  <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false" type="button">
     <i class="fa-solid fa-bars"></i>
-  </div>
+  </button>
 </header>
 
-<section class="hero" id="about">
+<!-- HERO -->
+<section class="hero" id="home">
   <div class="hero-content">
     <p class="tagline">DETAILING THAT TURNS HEADS</p>
-    <h1>Pure Finish,<br>Every Time.</h1>
+    <h1>Pure Finish,<br />Every Time.</h1>
     <p class="subtext">Mobile detailing across SoCal — deep clean, glossy shine, real protection.</p>
 
     <div class="cta-buttons">
@@ -51,15 +53,18 @@
     </div>
   </div>
 
-  <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop" alt="Sports Car">
+  <div class="hero-image" aria-hidden="true">
+    <img
+            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop"
+            alt="Sports car"
+    />
   </div>
 
   <div class="hero-divider"></div>
 </section>
 
-<!-- 3 boxes section -->
-<section class="features-strip">
+<!-- 3 FEATURE BOXES -->
+<section class="features-strip" aria-label="Highlights">
   <div class="features-inner">
     <div class="feature-card">
       <div class="feature-icon"><i class="fa-solid fa-sparkles"></i></div>
@@ -80,6 +85,32 @@
     </div>
   </div>
 </section>
+
+<!-- PLACEHOLDER SECTIONS (so nav works) -->
+<section class="page-section" id="pricing">
+  <div class="page-inner">
+    <h2>Pricing</h2>
+    <p>Pricing page content goes here.</p>
+  </div>
+</section>
+
+<section class="page-section" id="booking">
+  <div class="page-inner">
+    <h2>Booking</h2>
+    <p>Booking page content goes here.</p>
+  </div>
+</section>
+
+<section class="page-section" id="contact">
+  <div class="page-inner">
+    <h2>Contact Us</h2>
+    <p>Contact page content goes here.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© <span id="year"></span> Pure Finish SoCal. All Rights Reserved.</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
