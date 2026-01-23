@@ -2,7 +2,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root{
   --accent:#2596be;
-  --bg:#0f1014;
+  --bg: #000000;
   --white:#ffffff;
   --muted:rgba(255,255,255,0.68);
   --muted2:rgba(255,255,255,0.52);
