@@ -1,106 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pricing - Pure Finish SoCal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | Pure Finish SoCal</title>
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="pricing.css" />
 </head>
 
-<body class="page">
-<header class="navbar navbar-solid" id="siteHeader">
-    <div class="logo">
-        <div class="logo-text">
-            <h2>Pure Finish</h2>
-            <span>SoCal</span>
-        </div>
-    </div>
+<body>
+  <!-- Minimal top row: back only -->
+  <header class="top">
+    <a class="backBtn" href="index.html" aria-label="Back to homepage">
+      <span class="backIcon" aria-hidden="true">←</span>
+      <span>Back</span>
+    </a>
+  </header>
 
-    <nav class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="pricing.html" class="active">Pricing</a>
-        <a href="booking.html">Booking</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
+  <main class="wrap">
+    <!-- Hero / Title capsule -->
+    <section class="hero" aria-label="Pricing header">
+      <div class="heroCard">
+        <h1>Choose Your Package</h1>
+        <p>
+          Premium mobile detailing — pick the level that fits your finish.
+          Toggle to preview monthly vs annual savings.
+        </p>
+      </div>
 
-    <div class="social-icons">
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-    </div>
+      <!-- Toggle row -->
+      <div class="toggleRow" aria-label="Billing toggle">
+        <span class="toggleLabel" id="monthlyLabel">Monthly</span>
 
-    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false" type="button">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-</header>
+        <button class="toggle" id="billingToggle" type="button" role="switch"
+                aria-checked="false" aria-labelledby="monthlyLabel annualLabel">
+          <span class="toggleKnob" aria-hidden="true"></span>
+        </button>
 
-<main class="page-shell">
-    <div class="container page-hero">
-        <h1>Packages & Pricing</h1>
-        <p>We’ll plug your real packages here next (Interior, Exterior, Full Detail, Ceramic, etc.).</p>
+        <span class="toggleLabel" id="annualLabel">Annual</span>
+        <span class="savePill">Save up to 20%</span>
+      </div>
+    </section>
 
-        <div class="page-actions">
-            <button class="btn-primary" onclick="goBooking()">Book Now</button>
-            <button class="btn-primary btn-primary-outline" onclick="location.href='contact.html'">Ask a Question</button>
-        </div>
-    </div>
-</main>
-
-<footer class="footer">
-    <div class="container footer-inner">
-        <div class="footer-brand">
-            <div class="footer-mark">
-                <div class="footer-logo-text">
-                    <h3>Pure Finish</h3>
-                    <span>SoCal</span>
-                </div>
-            </div>
-
-            <p class="footer-desc">
-                Mobile car detailing with a premium finish — clean, gloss, and protection done right.
-            </p>
-
-            <div class="footer-social">
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            </div>
+    <!-- 3 packages -->
+    <section class="cards" aria-label="Package cards">
+      <!-- RINSE & GLOSS -->
+      <article class="planCard">
+        <div class="planTop">
+          <div class="planName">RINSE &amp; GLOSS</div>
+          <div class="planPrice">
+            <span class="currency">$</span>
+            <span class="amount" data-month="160" data-annual="128">160</span>
+          </div>
+          <div class="planSub">~2.5 HRS</div>
         </div>
 
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="pricing.html">Pricing</a>
-            <a href="booking.html">Booking</a>
-            <a href="contact.html">Contact Us</a>
+        <ul class="features">
+          <li>Hand wash</li>
+          <li>Wheels &amp; tires</li>
+          <li>Light decontamination</li>
+          <li>Gloss enhancement</li>
+          <li>30-day sealant</li>
+        </ul>
+
+        <button class="chooseBtn" type="button" onclick="alert('Booking page next!')">
+          Choose this package
+        </button>
+      </article>
+
+      <!-- FEATURED -->
+      <article class="planCard featured">
+        <div class="featuredRing" aria-hidden="true"></div>
+
+        <div class="planTop">
+          <div class="planName">PAINT RESET</div>
+          <div class="planPrice">
+            <span class="currency">$</span>
+            <span class="amount" data-month="210" data-annual="168">210</span>
+          </div>
+          <div class="planSub">~3–4 HRS</div>
         </div>
 
-        <div class="footer-col">
-            <h4>Contact</h4>
-            <a href="tel:+10000000000"><i class="fa-solid fa-phone"></i> (000) 000-0000</a>
-            <a href="mailto:info@purefinishsocal.com"><i class="fa-solid fa-envelope"></i> info@purefinishsocal.com</a>
-            <span class="footer-meta"><i class="fa-solid fa-location-dot"></i> Serving SoCal</span>
+        <ul class="features">
+          <li>Includes Rinse &amp; Gloss</li>
+          <li>Clay bar treatment</li>
+          <li>Paint enhancement polish</li>
+          <li>6-month paint sealant</li>
+          <li class="muted">Booking deposit required</li>
+        </ul>
+
+        <button class="chooseBtn filled" type="button" onclick="alert('Booking page next!')">
+          Choose this package
+        </button>
+      </article>
+
+      <!-- PAINT LOCK -->
+      <article class="planCard">
+        <div class="planTop">
+          <div class="planName">PAINT LOCK</div>
+          <div class="planPrice">
+            <span class="amountText">From</span>
+            <span class="currency">$</span>
+            <span class="amount" data-month="300" data-annual="240">300</span>
+          </div>
+          <div class="planSub">BY CONSULTATION</div>
         </div>
 
-        <div class="footer-col">
-            <h4>Hours</h4>
-            <span class="footer-meta">Mon–Sat: 9am – 6pm</span>
-            <span class="footer-meta">Sunday: By Appointment</span>
-            <button class="footer-cta" onclick="goBooking()">Book Now</button>
-        </div>
-    </div>
+        <ul class="features">
+          <li>Includes Paint Reset</li>
+          <li>1-step paint correction</li>
+          <li>Ceramic coating</li>
+          <li>Up to 12 months protection</li>
+          <li class="muted">Booking deposit required</li>
+        </ul>
 
-    <div class="container footer-bottom">
-        <span>© <span id="year"></span> Pure Finish SoCal. All rights reserved.</span>
-        <span class="footer-sep">•</span>
-        <span>Luxury mobile detailing</span>
-    </div>
-</footer>
+        <button class="chooseBtn" type="button" onclick="alert('Consultation form next!')">
+          Choose this package
+        </button>
+      </article>
+    </section>
 
-<script src="script.js"></script>
+    <!-- Compare table -->
+    <section class="compare" aria-label="Compare package features">
+      <div class="compareHead">
+        <h2>Compare Package Features</h2>
+        <p>Quick view to pick the right level.</p>
+      </div>
+
+      <div class="tableWrap" role="region" aria-label="Feature comparison table" tabindex="0">
+        <table class="compareTable">
+          <thead>
+            <tr>
+              <th>Key Features</th>
+              <th>Rinse &amp; Gloss</th>
+              <th>Paint Reset</th>
+              <th>Paint Lock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hand wash</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Wheels &amp; tires</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Light decontamination</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Clay bar treatment</td>
+              <td class="no">—</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Paint enhancement polish</td>
+              <td class="no">—</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>6-month paint sealant</td>
+              <td class="no">—</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>1-step correction</td>
+              <td class="no">—</td>
+              <td class="no">—</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Ceramic coating</td>
+              <td class="no">—</td>
+              <td class="no">—</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Deposit required</td>
+              <td class="no">—</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="miniNote">
+        Annual toggle is a preview. Final quotes may vary by vehicle size and condition.
+      </div>
+    </section>
+
+    <footer class="miniCopyright">
+      © <span id="year"></span> Pure Finish SoCal. All rights reserved.
+    </footer>
+  </main>
+
+  <script src="pricing.js"></script>
 </body>
 </html>
