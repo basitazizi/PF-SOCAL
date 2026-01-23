@@ -1,87 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PF SoCal — Rinseless Mobile Detailing</title>
-  <meta name="theme-color" content="#000000" />
-  <link rel="icon" href="assets/favicon.png" />
-  <link rel="preload" href="assets/logo.svg" as="image" />
-  <link rel="preload" href="assets/hero-car.png" as="image" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Finish - SoCal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-  <!-- Top header -->
-  <header class="top">
-    <img class="logo" src="assets/logo.svg" alt="PF SoCal" />
-  </header>
 
-  <main class="page" id="home">
-    <!-- Hero copy -->
-    <section class="hero" aria-label="Hero">
-      <h1 class="hero__title">Rinseless<br/>Mobile Detailing</h1>
-      <p class="hero__subtitle">Premium Auto Care • We Come To You</p>
+<header class="navbar">
+  <div class="logo">
+    <!-- removed the car icon -->
+    <div class="logo-text">
+      <h2>Pure Finish</h2>
+      <span>SoCal</span>
+    </div>
+  </div>
 
-      <!-- Car hero artwork -->
-      <div class="hero__art" aria-hidden="true">
-        <img class="hero__car" src="assets/hero-car.png" alt="" />
-      </div>
-
-      <!-- Primary actions -->
-      <div class="hero__actions" role="group" aria-label="Primary actions">
-        <a class="btn btn--primary" href="#book" data-nav="book">Book Now</a>
-        <a class="btn btn--ghost" href="#pricing" data-nav="pricing">Check Packages</a>
-      </div>
-    </section>
-
-    <!-- Sections (simple placeholders so nav has targets) -->
-    <section class="section" id="pricing" aria-label="Pricing">
-      <div class="section__inner">
-        <h2 class="section__title">Packages</h2>
-        <p class="section__muted">Add your package cards here (Rinse &amp; Gloss, Paint Reset, Paint Lock, plus interior add-ons).</p>
-      </div>
-    </section>
-
-    <section class="section" id="book" aria-label="Booking">
-      <div class="section__inner">
-        <h2 class="section__title">Booking</h2>
-        <p class="section__muted">Connect your booking system here (Calendly, Square, Acuity, or a custom form).</p>
-      </div>
-    </section>
-
-    <section class="section" id="contact" aria-label="Contact">
-      <div class="section__inner">
-        <h2 class="section__title">Contact</h2>
-        <p class="section__muted">Add phone, SMS, email, Instagram, and service area.</p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p class="footer__muted">© <span id="year"></span> PF SoCal. All rights reserved.</p>
-    </footer>
-  </main>
-
-  <!-- Floating bottom nav (mobile-first) -->
-  <nav class="dock" aria-label="Primary navigation">
-    <a class="dock__item is-active" href="#home" data-target="home" aria-current="page">
-      <span class="dock__icon" aria-hidden="true"></span>
-      <span class="dock__label">Home</span>
-    </a>
-    <a class="dock__item" href="#pricing" data-target="pricing">
-      <span class="dock__icon" aria-hidden="true"></span>
-      <span class="dock__label">Pricing</span>
-    </a>
-    <a class="dock__item" href="#book" data-target="book">
-      <span class="dock__icon" aria-hidden="true"></span>
-      <span class="dock__label">Book</span>
-    </a>
-    <a class="dock__item" href="#contact" data-target="contact">
-      <span class="dock__icon" aria-hidden="true"></span>
-      <span class="dock__label">Contact</span>
-    </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about" class="active">Home</a>
+    <a href="#services">Pricing</a>
+    <a href="#booking">Booking</a>
+    <a href="#contacts">Contact Us</a>
   </nav>
 
-  <script src="js/main.js"></script>
+  <div class="social-icons">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+
+  <div class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</header>
+
+<section class="hero" id="about">
+  <div class="hero-content">
+    <p class="tagline">DETAILING THAT TURNS HEADS</p>
+    <h1>Pure Finish,<br>Every Time.</h1>
+    <p class="subtext">Mobile detailing across SoCal — deep clean, glossy shine, real protection.</p>
+
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="bookNow()">Book Now</button>
+      <button class="btn-primary btn-primary-outline" onclick="goPackages()">Packages</button>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop" alt="Sports Car">
+  </div>
+
+  <div class="hero-divider"></div>
+</section>
+
+<!-- 3 boxes section -->
+<section class="features-strip">
+  <div class="features-inner">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-sparkles"></i></div>
+      <h3>Premium Shine</h3>
+      <p>Paint-safe wash + gloss finish that pops day or night.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+      <h3>Protection First</h3>
+      <p>Interior + exterior care with detail-level precision.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <h3>We Come To You</h3>
+      <p>Mobile service — home, work, or wherever you park.</p>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
