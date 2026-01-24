@@ -662,3 +662,17 @@ html, body{
     text-align:center;
   }
 }
+/* Selection states (visual only, no layout change) */
+.planCard.is-selected {
+  border-color: rgba(37,150,190,0.55);
+  box-shadow: 0 0 0 1px rgba(37,150,190,0.35), 0 22px 70px rgba(0,0,0,0.55);
+}
+
+.addonCard.is-selected {
+  border-color: rgba(37,150,190,0.45);
+  box-shadow: 0 0 0 1px rgba(37,150,190,0.22), 0 22px 70px rgba(0,0,0,0.45);
+}
+
+.addonBtn[aria-pressed="true"] {
+  border-color: rgba(37,150,190,0.55);
+}

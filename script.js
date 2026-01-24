@@ -22,3 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// Booking + Contact button wiring (no design changes)
+document.addEventListener("DOMContentLoaded", () => {
+  const bookingLinks = document.querySelectorAll('[data-go="booking"]');
+  const contactLinks = document.querySelectorAll('[data-go="contact"]');
+
+  bookingLinks.forEach(a => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "booking.html";
+    });
+  });
+
+  contactLinks.forEach(a => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "contact.html";
+    });
+  });
+});
