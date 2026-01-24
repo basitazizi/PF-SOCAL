@@ -13,92 +13,109 @@
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="navbar" id="siteHeader">
-    <div class="logo">
-      <div class="logo-text">
-        <h2>Pure Finish</h2>
-        <span>SoCal</span>
+<!-- HEADER -->
+<header class="navbar" id="siteHeader">
+  <div class="logo">
+    <div class="logo-text">
+      <h2>Pure Finish</h2>
+      <span>SoCal</span>
+    </div>
+  </div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="#" onclick="alert('Booking page next!'); return false;">Booking</a>
+    <a href="#" onclick="alert('Contact page next!'); return false;">Contact Us</a>
+  </nav>
+
+  <div class="social-icons">
+    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+
+  <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false" type="button">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="tagline">DETAILING THAT TURNS HEADS</p>
+    <h1>Pure Finish,<br />Every Time.</h1>
+    <p class="subtext">Mobile detailing across SoCal — deep clean, glossy shine, real protection.</p>
+
+    <div class="cta-buttons">
+      <a class="btn-primary" href="#" onclick="alert('Booking page next!'); return false;">Book Now</a>
+      <a class="btn-primary btn-primary-outline" href="pricing.html">Packages</a>
+    </div>
+  </div>
+
+  <div class="hero-image" aria-hidden="true">
+    <img
+            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop"
+            alt="Sports car"
+    />
+  </div>
+
+  <div class="hero-divider"></div>
+</section>
+
+<!-- 3 FEATURE BOXES -->
+<section class="features-strip" aria-label="Highlights">
+  <div class="container">
+    <div class="features-inner">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>Premium Shine</h3>
+        <p>Paint-safe wash + gloss finish that pops day or night.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Protection First</h3>
+        <p>Interior + exterior care with detail-level precision.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h3>We Come To You</h3>
+        <p>Mobile service — home, work, or wherever you park.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html" class="active">Home</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="#" onclick="alert('Booking page next!'); return false;">Booking</a>
-      <a href="#" onclick="alert('Contact page next!'); return false;">Contact Us</a>
-    </nav>
+<!--&lt;!&ndash; HOW IT WORKS &ndash;&gt;-->
+<!--<section class="how-it-works">-->
+<!--  <h2>How It Works</h2>-->
+<!--  <div class="how-steps">-->
+<!--    <div class="step">-->
+<!--      <span class="step-num">①</span>-->
+<!--      <span class="step-text">Book</span>-->
+<!--    </div>-->
 
-    <div class="social-icons">
-      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-    </div>
+<!--    <span class="step-line"></span>-->
 
-    <button class="menu-toggle" id="mobile-menu" aria-label="Open Menu" aria-expanded="false" type="button">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-  </header>
+<!--    <div class="step">-->
+<!--      <span class="step-num">②</span>-->
+<!--      <span class="step-text">We Arrive</span>-->
+<!--    </div>-->
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <p class="tagline">DETAILING THAT TURNS HEADS</p>
-      <h1>Pure Finish,<br />Every Time.</h1>
-      <p class="subtext">Mobile detailing across SoCal — deep clean, glossy shine, real protection.</p>
+<!--    <span class="step-line"></span>-->
 
-      <div class="cta-buttons">
-        <a class="btn-primary" href="#" onclick="alert('Booking page next!'); return false;">Book Now</a>
-        <a class="btn-primary btn-primary-outline" href="pricing.html">Packages</a>
-      </div>
-    </div>
-
-    <div class="hero-image" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop"
-        alt="Sports car"
-      />
-    </div>
-
-    <div class="hero-divider"></div>
-  </section>
-
-  <!-- 3 FEATURE BOXES -->
-  <section class="features-strip" aria-label="Highlights">
-    <div class="container">
-      <div class="features-inner">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
-          <h3>Premium Shine</h3>
-          <p>Paint-safe wash + gloss finish that pops day or night.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>Protection First</h3>
-          <p>Interior + exterior care with detail-level precision.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
-          <h3>We Come To You</h3>
-          <p>Mobile service — home, work, or wherever you park.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!--  &lt;!&ndash; Minimal copyright only &ndash;&gt;-->
-<!--  <div class="copyright">-->
-<!--    © <span id="year"></span> Pure Finish SoCal. All rights reserved.-->
+<!--    <div class="step">-->
+<!--      <span class="step-num">③</span>-->
+<!--      <span class="step-text">You Drive Clean</span>-->
+<!--    </div>-->
 <!--  </div>-->
+<!--</section>-->
 
-  <script src="script.js"></script>
-</body>
-</html>
+<!-- FOOTER -->
 <footer class="lux-footer">
   <div class="lux-footer-inner">
-
     <!-- Socials -->
     <div class="lux-footer-socials">
       <a href="#" aria-label="Instagram">
@@ -131,6 +148,9 @@
     <div class="lux-footer-copy">
       © 2026 Pure Finish SoCal · All rights reserved
     </div>
-
   </div>
 </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -236,6 +236,95 @@ body{
   letter-spacing:.2px;
 }
 
+/* ==========================
+   LUX FOOTER (FIXED ICON SIZE)
+   ========================== */
+
+/* If you ever want a different footer color, change this background. */
+.lux-footer{
+  background:#000; /* ✅ footer background (change if you want) */
+  padding: 22px 18px;
+}
+
+.lux-footer-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Social buttons */
+.lux-footer-socials{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+}
+
+.lux-footer-socials a{
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+/* ✅ THIS is the key fix: force SVG size */
+.lux-footer-socials svg{
+  width: 18px;   /* ✅ change icon size here */
+  height: 18px;  /* ✅ change icon size here */
+  display:block;
+  fill: rgba(255,255,255,0.9);
+}
+
+.lux-footer-socials a:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.06);
+}
+
+/* Links */
+.lux-footer-links{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  color: rgba(255,255,255,0.62);
+  font-size: .98rem;
+}
+
+.lux-footer-links a{
+  color: rgba(255,255,255,0.62);
+  text-decoration:none;
+}
+.lux-footer-links a:hover{
+  color: rgba(255,255,255,0.9);
+}
+
+/* Copyright */
+.lux-footer-copy{
+  color: rgba(255,255,255,0.55);
+  font-size: .98rem;
+  text-align:right;
+}
+
+/* Mobile footer alignment */
+@media (max-width: 700px){
+  .lux-footer-inner{
+    justify-content:center;
+    text-align:center;
+  }
+  .lux-footer-copy{
+    text-align:center;
+  }
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 900px){
   .navbar{ padding:18px 18px; }
@@ -263,10 +352,7 @@ body{
   .nav-links a:last-child{ border-bottom:none; }
   .nav-links.open{ display:flex; }
 
-  /* ✅ HERO MOBILE (match your first image):
-     - image starts UNDER the buttons (not behind text/buttons)
-     - buttons float with their own shadows
-     - full-bleed image edge-to-edge */
+  /* ✅ HERO MOBILE (match your first image) */
   .hero{
     flex-direction:column;
     justify-content:flex-start;
@@ -279,7 +365,6 @@ body{
     min-height:100svh;
   }
 
-  /* kill the behind-image overlay on mobile */
   .hero::after{ opacity:0 !important; }
 
   .hero-content{
@@ -290,7 +375,6 @@ body{
   .hero-content h1{ font-size:2.6rem; }
   .subtext{ font-size:1rem; }
 
-  /* buttons: no big glass bar; just premium shadows like your first image */
   .cta-buttons{
     justify-content:center;
     margin-top:18px;
@@ -311,7 +395,6 @@ body{
     box-shadow: 0 18px 45px rgba(0,0,0,0.45);
   }
 
-  /* image becomes a section UNDER content, full-bleed edge-to-edge */
   .hero-image{
     position:relative;
     left:50%;
@@ -333,20 +416,18 @@ body{
     display:block;
   }
 
-  /* soft fade at the TOP of the image so it blends under buttons (no harsh seam) */
   .hero-image::before{
     content:"";
     position:absolute;
     inset:0;
     pointer-events:none;
     background: linear-gradient(180deg,
-      rgba(15,16,20,0.95) 0%,
-      rgba(15,16,20,0.55) 18%,
-      rgba(15,16,20,0.15) 42%,
-      rgba(15,16,20,0.00) 65%);
+    rgba(15,16,20,0.95) 0%,
+    rgba(15,16,20,0.55) 18%,
+    rgba(15,16,20,0.15) 42%,
+    rgba(15,16,20,0.00) 65%);
   }
 
-  /* keep the white wedge at the bottom like your design */
   .hero-divider{
     position:absolute;
     bottom:-1px;
@@ -357,7 +438,6 @@ body{
     clip-path: polygon(0 100%, 100% 100%, 100% 30%, 0 0);
   }
 
-  /* ✅ 3 cards stay 3 across on mobile */
   .features-inner{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -372,84 +452,4 @@ body{
 @media (max-width: 420px){
   .feature-card h3{ font-size:.86rem; }
   .feature-card p{ font-size:.78rem; }
-}
-.lux-footer{
-  background:#000;
-  padding:22px 16px;
-  border-top:1px solid rgba(255,255,255,0.08);
-}
-
-.lux-footer-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-}
-
-/* Social icons */
-.lux-footer-socials{
-  display:flex;
-  gap:14px;
-}
-
-.lux-footer-socials a{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.12);
-  transition:all .25s ease;
-}
-
-.lux-footer-socials a:hover{
-  background:rgba(255,255,255,0.1);
-  transform:translateY(-2px);
-}
-
-.lux-footer-socials svg{
-  width:18px;
-  height:18px;
-  fill:#fff;
-}
-
-/* Links */
-.lux-footer-links{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:.9rem;
-}
-
-.lux-footer-links a{
-  color:rgba(255,255,255,0.75);
-  text-decoration:none;
-  transition:color .2s ease;
-}
-
-.lux-footer-links a:hover{
-  color:#fff;
-}
-
-.lux-footer-links span{
-  color:rgba(255,255,255,0.3);
-}
-
-/* Copyright */
-.lux-footer-copy{
-  font-size:.85rem;
-  color:rgba(255,255,255,0.5);
-}
-
-/* Mobile */
-@media (max-width:768px){
-  .lux-footer-inner{
-    flex-direction:column;
-    text-align:center;
-  }
 }
