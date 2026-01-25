@@ -2,16 +2,12 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 :root{
-  --bg:#000000; /* Change background color here if needed */
-  --panel:#0c0f14;
-  --panel2:#0a0d12;
+  --bg:#000000;
   --line:rgba(255,255,255,0.10);
   --text:#ffffff;
   --muted:rgba(255,255,255,0.68);
 
-  --accent:#2596be; /* Change accent color here if needed */
-  --accentSoft: rgb(37, 150, 190);
-
+  --accent:#2596be;
   --radius:24px;
   --shadow:0 22px 70px rgba(0,0,0,0.55);
 }
@@ -72,6 +68,7 @@ html,body{
   align-items:start;
 }
 
+/* Left summary (same look) */
 .summary{
   position:sticky;
   top:16px;
@@ -119,7 +116,6 @@ html,body{
   background:rgba(0,0,0,0.40);
   border:1px solid rgba(255,255,255,0.10);
   padding:14px;
-  position:relative;
 }
 .blockTitle{
   font-family:"Montserrat", sans-serif;
@@ -157,7 +153,6 @@ html,body{
   color:rgba(255,255,255,0.62);
 }
 
-.summaryTotal{margin-top:14px;position:relative;}
 .fineprint{margin-top:10px;color:rgba(255,255,255,0.60);font-size:0.9rem;line-height:1.55;}
 
 .helpCard{
@@ -169,7 +164,6 @@ html,body{
   border-radius:18px;
   background:rgba(37,150,190,1);
   border:1px solid rgba(37,150,190,1);
-  position:relative;
 }
 .helpIcon{
   width:34px;height:34px;border-radius:12px;
@@ -188,6 +182,7 @@ html,body{
 }
 .helpLink:hover{text-decoration:underline;text-underline-offset:4px;}
 
+/* Right Calendly card */
 .formCard{
   border-radius:var(--radius);
   background:rgba(255,255,255,0.03);
@@ -196,27 +191,20 @@ html,body{
   padding:18px;
 }
 
-/* Calendly header */
 .calHead{margin-bottom:10px;}
 .calTitle{
   font-family:"Montserrat", sans-serif;
   font-weight:800;
   font-size:1.25rem;
 }
-.calSub{
-  margin-top:6px;
-  line-height:1.5;
-}
+.calSub{margin-top:6px;line-height:1.5;}
 
-/* Make the embedded Calendly feel “native” */
 .calendly-inline-widget{
   border-radius:18px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.10);
   background:rgba(0,0,0,0.35);
 }
-
-/* Optional: soften Calendly inner iframe edges */
 .calendly-inline-widget iframe{
   border:0 !important;
   border-radius:18px;

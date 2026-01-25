@@ -22,30 +22,15 @@
 </header>
 
 <main class="wrap">
-  <!-- Hero / Title capsule -->
+  <!-- Hero -->
   <section class="hero" aria-label="Pricing header">
     <div class="heroCard">
       <h1>Choose Your Package</h1>
-      <p>
-        Premium mobile detailing — pick the level that fits your finish.
-      </p>
+      <p>Premium mobile detailing — pick the level that fits your finish.</p>
     </div>
-
-    <!--      &lt;!&ndash; Toggle row &ndash;&gt;-->
-    <!--      <div class="toggleRow" aria-label="Billing toggle">-->
-    <!--        <span class="toggleLabel" id="monthlyLabel">Monthly</span>-->
-
-    <!--        <button class="toggle" id="billingToggle" type="button" role="switch"-->
-    <!--                aria-checked="false" aria-labelledby="monthlyLabel annualLabel">-->
-    <!--          <span class="toggleKnob" aria-hidden="true"></span>-->
-    <!--        </button>-->
-
-    <!--        <span class="toggleLabel" id="annualLabel">Annual</span>-->
-    <!--        <span class="savePill">Save up to 20%</span>-->
-    <!--      </div>-->
   </section>
 
-  <!-- 3 packages -->
+  <!-- Packages -->
   <section class="cards" aria-label="Package cards">
     <!-- RINSE & GLOSS -->
     <article class="planCard">
@@ -53,7 +38,7 @@
         <div class="planName">RINSE &amp; GLOSS</div>
         <div class="planPrice">
           <span class="currency">$</span>
-          <span class="amount" data-month="160" data-annual="128">160</span>
+          <span class="amount" data-month="160">160</span>
         </div>
         <div class="planSub">~2.5 HRS</div>
       </div>
@@ -69,7 +54,6 @@
       <button class="chooseBtn" type="button" data-package="RINSE & GLOSS" data-price="160">
         Choose this package
       </button>
-
     </article>
 
     <!-- FEATURED -->
@@ -80,7 +64,7 @@
         <div class="planName">PAINT RESET</div>
         <div class="planPrice">
           <span class="currency">$</span>
-          <span class="amount" data-month="210" data-annual="168">210</span>
+          <span class="amount" data-month="210">210</span>
         </div>
         <div class="planSub">~3–4 HRS</div>
       </div>
@@ -96,7 +80,6 @@
       <button class="chooseBtn filled" type="button" data-package="PAINT RESET" data-price="210">
         Choose this package
       </button>
-
     </article>
 
     <!-- PAINT LOCK -->
@@ -106,7 +89,7 @@
         <div class="planPrice">
           <span class="amountText">From</span>
           <span class="currency">$</span>
-          <span class="amount" data-month="300" data-annual="240">300</span>
+          <span class="amount" data-month="300">300</span>
         </div>
         <div class="planSub">BY CONSULTATION</div>
       </div>
@@ -122,15 +105,14 @@
       <button class="chooseBtn" type="button" data-package="PAINT LOCK" data-price="300">
         Choose this package
       </button>
-
     </article>
   </section>
 
-  <!-- Interior Add-Ons -->
-  <section class="addons" aria-label="Interior add-ons">
+  <!-- ✅ SINGLE Add-ons section (no duplicates) -->
+  <section class="addons" aria-label="Interior add-ons" id="addonsSection">
     <div class="addonsHead">
       <h2>Interior Add-Ons</h2>
-      <p>Boost comfort, freshness, and that showroom feel.</p>
+      <p>Choose ONE option below (required) before selecting a package.</p>
     </div>
 
     <div class="addonsGrid">
@@ -146,13 +128,12 @@
           <li>Cup holders cleaned</li>
           <li>Interior windows</li>
         </ul>
-        <button class="addonBtn" type="button" data-addon="Interior Essentials" data-addon-price="39">
-          Add this add-on
+        <button class="addonBtn" type="button" data-addon="Interior Essentials" data-addon-price="39" data-addon-slug="interior-essentials">
+          Select this add-on
         </button>
       </article>
 
       <article class="addonCard featured">
-<!--        <div class="badge">Most Requested</div>-->
         <div class="addonTop">
           <div class="addonTitle">Interior Reset</div>
           <div class="addonPrice">$99</div>
@@ -164,17 +145,32 @@
           <li>Detailed crevice cleaning</li>
           <li>Air vent purification (steam)</li>
         </ul>
-        <button class="addonBtn primary" type="button" data-addon="Interior Reset" data-addon-price="99">
-          Add this add-on
+        <button class="addonBtn primary" type="button" data-addon="Interior Reset" data-addon-price="99" data-addon-slug="interior-reset">
+          Select this add-on
+        </button>
+      </article>
+
+      <article class="addonCard" id="noAddonsCard">
+        <div class="addonTop">
+          <div class="addonTitle">No Add-ons</div>
+          <div class="addonPrice">$0</div>
+        </div>
+        <div class="addonMeta">Skip interior add-ons</div>
+        <ul class="addonList">
+          <li>No interior add-on selected</li>
+          <li>Fastest checkout</li>
+          <li>You can request interior later by text/call</li>
+        </ul>
+        <button class="addonBtn" type="button" data-addon="No Add-ons" data-addon-price="0" data-addon-slug="none">
+          Select no add-ons
         </button>
       </article>
     </div>
 
     <div class="addonsNote">
-      Add-ons can be combined with any exterior package. We’ll confirm details after you request.
+      You must pick exactly one option above before choosing a package.
     </div>
   </section>
-
 
   <!-- Compare table -->
   <section class="compare" aria-label="Compare package features">
@@ -200,150 +196,35 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Hand wash</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>Wheels &amp; tires</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>Light decontamination</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>Clay bar treatment</td>
-          <td class="no">—</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>Paint enhancement polish</td>
-          <td class="no">—</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>6-month paint sealant</td>
-          <td class="no">—</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>1-step correction</td>
-          <td class="no">—</td>
-          <td class="no">—</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>Ceramic coating</td>
-          <td class="no">—</td>
-          <td class="no">—</td>
-          <td class="yes">✓</td>
-        </tr>
-        <tr>
-          <td>Deposit required</td>
-          <td class="no">—</td>
-          <td class="yes">✓</td>
-          <td class="yes">✓</td>
-        </tr>
+        <tr><td>Hand wash</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Wheels &amp; tires</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Light decontamination</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Clay bar treatment</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Paint enhancement polish</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>6-month paint sealant</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>1-step correction</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>Ceramic coating</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>Deposit required</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         </tbody>
       </table>
     </div>
-
-    <div class="miniNote">
-      <!--        Annual toggle is a preview. Final quotes may vary by vehicle size and condition.-->
-    </div>
   </section>
-
-
-
-
-
-<!--  <section class="compare-mobile">-->
-<!--    <h2>Package Comparison</h2>-->
-
-<!--    <div class="compare-block">-->
-<!--      <h3>Rinse & Gloss</h3>-->
-<!--      <ul>-->
-<!--        <li>Hand wash</li>-->
-<!--        <li>Wheels & tires</li>-->
-<!--        <li>Light decontamination</li>-->
-<!--        <li>Gloss enhancement</li>-->
-<!--        <li>30‑day sealant</li>-->
-<!--      </ul>-->
-<!--    </div>-->
-
-<!--    <div class="compare-block">-->
-<!--      <h3>Paint Reset</h3>-->
-<!--      <ul>-->
-<!--        <li>Everything in Rinse & Gloss</li>-->
-<!--        <li>Clay bar treatment</li>-->
-<!--        <li>Paint enhancement polish</li>-->
-<!--        <li>6‑month paint sealant</li>-->
-<!--        <li>Deposit required</li>-->
-<!--      </ul>-->
-<!--    </div>-->
-
-<!--    <div class="compare-block">-->
-<!--      <h3>Paint Lock</h3>-->
-<!--      <ul>-->
-<!--        <li>Everything in Paint Reset</li>-->
-<!--        <li>1‑step correction</li>-->
-<!--        <li>Ceramic coating</li>-->
-<!--        <li>Up to 12‑month protection</li>-->
-<!--        <li>Deposit required</li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </section>-->
-
 </main>
+
+<footer class="lux-footer">
+  <div class="lux-footer-inner">
+    <div class="lux-footer-links">
+      <a href="#">Privacy Policy</a>
+      <span>•</span>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+
+    <div class="lux-footer-copy">
+      © 2026 Pure Finish SoCal · All rights reserved
+    </div>
+  </div>
+</footer>
 
 <script src="pricing.js"></script>
 </body>
 </html>
-<footer class="lux-footer">
-  <div class="lux-footer-inner">
-
-    <!-- Socials -->
-    <div class="lux-footer-socials">
-      <a href="#" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm5.75-2.25a1.25 1.25 0 1 1-1.25-1.25 1.25 1.25 0 0 1 1.25 1.25z"/>
-        </svg>
-      </a>
-
-      <a href="#" aria-label="TikTok">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M16.7 5.3a5.7 5.7 0 0 1-3.4-1.1v8.3a4.4 4.4 0 1 1-4.4-4.4 4 4 0 0 1 .8.1v2.4a1.9 1.9 0 1 0 1.9 1.9V2h2.6a8.3 8.3 0 0 0 4.5 3.3z"/>
-        </svg>
-      </a>
-
-      <a href="#" aria-label="Pinterest">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 .1-2.9.3-.8 2-8.2 2-8.2a5.9 5.9 0 0 1-.5-2.4c0-2.2 1.3-3.9 2.9-3.9 1.4 0 2.1 1.1 2.1 2.3 0 1.4-.9 3.6-1.4 5.6-.4 1.7.9 3.1 2.6 3.1 3.1 0 5.5-3.3 5.5-8 0-4.2-3-7.1-7.4-7.1-5.1 0-8.1 3.8-8.1 7.7 0 1.5.6 3.1 1.3 4 .1.2.1.3.1.5-.1.5-.4 1.7-.4 1.9-.1.3-.2.4-.5.3-1.9-.9-3.1-3.7-3.1-6 0-4.9 3.6-9.4 10.4-9.4 5.4 0 9.6 3.9 9.6 9.1 0 5.4-3.4 9.7-8.1 9.7-1.6 0-3.1-.8-3.6-1.8l-1 3.8c-.4 1.3-1.4 2.9-2.1 3.9A10 10 0 1 0 12 2z"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- Links -->
-    <div class="lux-footer-links">
-      <a href="#">Privacy Policy</a>
-      <span>•</span>
-      <a href="#">Terms & Conditions</a>
-    </div>
-
-    <!-- Copyright -->
-    <div class="lux-footer-copy">
-      © 2026 Pure Finish SoCal · All rights reserved
-    </div>
-
-  </div>
-</footer>

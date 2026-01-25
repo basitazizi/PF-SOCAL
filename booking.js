@@ -21,14 +21,21 @@
     return `$${Number(n || 0).toFixed(0)}`;
   }
 
+  // ✅ FIXED: order matters — interior reset must be detected BEFORE paint reset.
   function nameToSlug(name) {
     const n = String(name || "").toLowerCase().trim();
     if (!n) return "";
-    if (n.includes("rinse")) return "rinse-gloss";
-    if (n.includes("reset")) return "paint-reset";
-    if (n.includes("lock")) return "paint-lock";
-    if (n.includes("essentials")) return "interior-essentials";
+
+    // Add-ons first (more specific)
     if (n.includes("interior reset")) return "interior-reset";
+    if (n.includes("interior essentials") || n.includes("essentials")) return "interior-essentials";
+
+    // Packages
+    if (n.includes("rinse")) return "rinse-gloss";
+    if (n.includes("paint lock") || n.includes("lock")) return "paint-lock";
+    if (n.includes("paint reset")) return "paint-reset";
+
+    // fallback
     return "";
   }
 
@@ -47,7 +54,11 @@
       let addons = Array.isArray(s.addons) ? s.addons : [];
       addons = addons
           .map((a) =>
-              typeof a === "string" ? a : (a && a.slug) ? a.slug : nameToSlug(a?.name || "")
+              typeof a === "string"
+                  ? a
+                  : (a && a.slug)
+                      ? a.slug
+                      : nameToSlug(a?.name || "")
           )
           .filter(Boolean);
 
@@ -91,36 +102,31 @@
     }
 
     const base = pkg ? pkg.base : 0;
-    const addonsTotal = addonItems.reduce((s, a) => s + (a.price || 0), 0);
+    const addonsTotal = addonItems.reduce((sum, a) => sum + (a.price || 0), 0);
     $("#summaryTotal").textContent = money(base + addonsTotal);
   }
 
-  // Send your selection into Calendly as query params.
-  // Note: Calendly can capture these if you add custom questions in Calendly settings.
-  // Common pattern: a1, a2, a3... for custom answers.
   function buildCalendlyUrl(sel) {
-    const pkg = PACKAGE_MAP[sel.pkg]?.name || "Not selected";
+    const pkgName = PACKAGE_MAP[sel.pkg]?.name || "Not selected";
+
     const addons = (sel.addons || [])
         .map((slug) => ADDON_MAP[slug]?.name)
         .filter(Boolean);
 
     const addonsText = addons.length ? addons.join(", ") : "None";
+
     const total =
         (PACKAGE_MAP[sel.pkg]?.base || 0) +
         (sel.addons || []).reduce((sum, slug) => sum + (ADDON_MAP[slug]?.price || 0), 0);
 
     const url = new URL(CALENDLY_BASE);
-
-    // Put key info into custom fields:
-    url.searchParams.set("a1", `Package: ${pkg}`);
+    url.searchParams.set("a1", `Package: ${pkgName}`);
     url.searchParams.set("a2", `Add-ons: ${addonsText}`);
     url.searchParams.set("a3", `Estimate: $${total}`);
 
     return url.toString();
   }
 
-  // Calendly widget script reads data-url at load.
-  // If we want it to reflect the selected package, we re-init it after setting URL.
   function initCalendly(sel) {
     const el = $("#calendlyWidget");
     if (!el) return;
@@ -128,25 +134,18 @@
     const calendlyUrl = buildCalendlyUrl(sel);
     el.setAttribute("data-url", calendlyUrl);
 
-    // If Calendly has already loaded, re-render it:
-    // (This is safe; it just re-inits the widget.)
     const tryInit = () => {
       if (!window.Calendly || !window.Calendly.initInlineWidget) return false;
-
-      el.innerHTML = ""; // clear existing widget
-      window.Calendly.initInlineWidget({
-        url: calendlyUrl,
-        parentElement: el
-      });
+      el.innerHTML = "";
+      window.Calendly.initInlineWidget({ url: calendlyUrl, parentElement: el });
       return true;
     };
 
     if (!tryInit()) {
-      // If script hasn't loaded yet, poll briefly
       let tries = 0;
       const t = setInterval(() => {
         tries += 1;
-        if (tryInit() || tries > 40) clearInterval(t); // ~4s max
+        if (tryInit() || tries > 40) clearInterval(t);
       }, 100);
     }
   }
@@ -159,7 +158,6 @@
     updateSummary(sel);
     initCalendly(sel);
 
-    // If pricing selection changes in another tab, update summary + calendly
     window.addEventListener("storage", (e) => {
       if (e.key === STORAGE_KEY) {
         const updated = safeLoad();

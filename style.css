@@ -453,3 +453,141 @@ body{
   .feature-card h3{ font-size:.86rem; }
   .feature-card p{ font-size:.78rem; }
 }
+/* ==========================
+   VIDEO STRIP (ADDED)
+   ========================== */
+.video-strip{
+  background:#fff;                 /* matches your white section */
+  padding: 0 0 34px;               /* fills the white gap above footer */
+}
+
+.video-inner{
+  display:flex;
+  gap:18px;
+  align-items:stretch;
+  justify-content:center;
+}
+
+.video-card{
+  position:relative;
+  flex:1 1 0;
+  min-width:220px;
+  background:#0f1014;              /* same as feature cards */
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  overflow:hidden;
+}
+
+/* Keeps all three videos same height like your boxes */
+.pf-video{
+  width:100%;
+  height:220px;
+  display:block;
+  object-fit:cover;
+  background:#000;
+}
+
+/* Play button overlay */
+.video-play{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.35));
+  border:none;
+  cursor:pointer;
+  z-index:2;
+  transition:opacity .18s ease;
+}
+
+.video-card.is-playing .video-play{
+  opacity:0;
+  pointer-events:none;
+}
+
+/* The play icon */
+.play-icon{
+  width:64px;
+  height:64px;
+  border-radius:999px;
+  background:rgba(37,150,190,0.20);
+  border:1px solid rgba(37,150,190,0.35);
+  box-shadow:0 18px 50px rgba(0,0,0,0.35);
+  position:relative;
+}
+
+.play-icon::before{
+  content:"";
+  position:absolute;
+  left:26px;
+  top:20px;
+  width:0;
+  height:0;
+  border-left:18px solid rgba(255,255,255,0.92);
+  border-top:12px solid transparent;
+  border-bottom:12px solid transparent;
+}
+
+/* Caption like your feature text */
+.video-caption{
+  padding:16px 16px 18px;
+}
+
+.video-caption h3{
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  font-size:1.05rem;
+  margin-bottom:8px;
+  color:#fff;
+}
+
+.video-caption p{
+  color:rgba(255,255,255,0.72);
+  font-size:.98rem;
+  line-height:1.35;
+}
+
+/* Mobile: match your 3-across layout behavior */
+@media (max-width: 900px){
+  .video-inner{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+  }
+
+  .pf-video{
+    height:150px;                  /* smaller on phone */
+  }
+
+  .video-caption{
+    padding:12px;
+  }
+
+  .video-caption h3{
+    font-size:.92rem;
+  }
+
+  .video-caption p{
+    font-size:.82rem;
+    line-height:1.25;
+  }
+
+  .play-icon{
+    width:46px;
+    height:46px;
+  }
+  .play-icon::before{
+    left:19px;
+    top:14px;
+    border-left:14px solid rgba(255,255,255,0.92);
+    border-top:9px solid transparent;
+    border-bottom:9px solid transparent;
+  }
+}
+
+@media (max-width: 420px){
+  .pf-video{ height:130px; }
+  .video-caption h3{ font-size:.86rem; }
+  .video-caption p{ font-size:.78rem; }
+}
