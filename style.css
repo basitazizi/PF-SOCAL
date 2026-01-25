@@ -454,32 +454,33 @@ body{
   .feature-card p{ font-size:.78rem; }
 }
 /* ==========================
-   VIDEO STRIP (ADDED)
+   VIDEO STRIP (FIXED)
    ========================== */
 .video-strip{
-  background:#fff;                 /* matches your white section */
-  padding: 0 0 34px;               /* fills the white gap above footer */
+  background:#fff;
+  padding: 0 0 34px;
 }
 
+/* Desktop: 3 across */
 .video-inner{
   display:flex;
   gap:18px;
   align-items:stretch;
   justify-content:center;
+  flex-wrap:nowrap;
 }
 
 .video-card{
   position:relative;
   flex:1 1 0;
-  min-width:220px;
-  background:#0f1014;              /* same as feature cards */
+  min-width:0; /* ✅ IMPORTANT: allows shrinking without overflow */
+  background:#0f1014;
   border-radius:18px;
   border:1px solid rgba(255,255,255,0.08);
   box-shadow:0 10px 30px rgba(0,0,0,0.25);
   overflow:hidden;
 }
 
-/* Keeps all three videos same height like your boxes */
 .pf-video{
   width:100%;
   height:220px;
@@ -488,7 +489,7 @@ body{
   background:#000;
 }
 
-/* Play button overlay */
+/* Play overlay */
 .video-play{
   position:absolute;
   inset:0;
@@ -506,7 +507,6 @@ body{
   pointer-events:none;
 }
 
-/* The play icon */
 .play-icon{
   width:64px;
   height:64px;
@@ -529,7 +529,6 @@ body{
   border-bottom:12px solid transparent;
 }
 
-/* Caption like your feature text */
 .video-caption{
   padding:16px 16px 18px;
 }
@@ -548,46 +547,40 @@ body{
   line-height:1.35;
 }
 
-/* Mobile: match your 3-across layout behavior */
+/* ✅ Mobile: DON'T force 3 columns. Use 1 column so nothing overlaps. */
 @media (max-width: 900px){
   .video-inner{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:10px;
+    grid-template-columns: 1fr; /* ✅ FIX */
+    gap:14px;
   }
 
   .pf-video{
-    height:150px;                  /* smaller on phone */
+    height:190px; /* ✅ better on phone */
   }
 
   .video-caption{
-    padding:12px;
+    padding:14px;
   }
 
   .video-caption h3{
-    font-size:.92rem;
-  }
-
-  .video-caption p{
-    font-size:.82rem;
-    line-height:1.25;
+    font-size:1rem;
   }
 
   .play-icon{
-    width:46px;
-    height:46px;
+    width:52px;
+    height:52px;
   }
   .play-icon::before{
-    left:19px;
-    top:14px;
-    border-left:14px solid rgba(255,255,255,0.92);
-    border-top:9px solid transparent;
-    border-bottom:9px solid transparent;
+    left:21px;
+    top:16px;
+    border-left:15px solid rgba(255,255,255,0.92);
+    border-top:10px solid transparent;
+    border-bottom:10px solid transparent;
   }
 }
 
 @media (max-width: 420px){
-  .pf-video{ height:130px; }
-  .video-caption h3{ font-size:.86rem; }
-  .video-caption p{ font-size:.78rem; }
+  .pf-video{ height:170px; }
+  .video-caption h3{ font-size:.95rem; }
 }
