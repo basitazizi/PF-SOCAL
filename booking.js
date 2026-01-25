@@ -1,6 +1,5 @@
 /* booking.js */
 (function () {
-  // Shared storage key used across pricing + booking
   const STORAGE_KEY = "pf_booking_selection";
 
   const PACKAGE_MAP = {
@@ -14,57 +13,12 @@
     "interior-reset": { name: "Interior Reset", price: 99 }
   };
 
+  const CALENDLY_BASE = "https://calendly.com/abdulbasitazizi816/new-meeting";
+
   const $ = (sel) => document.querySelector(sel);
-  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
   function money(n) {
     return `$${Number(n || 0).toFixed(0)}`;
-  }
-
-  // ---- Storage helpers (supports old formats safely) ----
-  function safeLoad() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return { pkg: "", addons: [] };
-      const s = JSON.parse(raw);
-
-      // pkg may be object or string/slug
-      let pkgSlug = "";
-      if (typeof s.pkg === "string") pkgSlug = s.pkg;
-      else if (s.pkg && typeof s.pkg.slug === "string") pkgSlug = s.pkg.slug;
-      else if (s.pkg && typeof s.pkg.name === "string") {
-        // map name -> slug if possible
-        pkgSlug = nameToSlug(s.pkg.name);
-      }
-
-      // addons may be array of objects or strings
-      let addons = Array.isArray(s.addons) ? s.addons : [];
-      addons = addons
-          .map((a) => (typeof a === "string" ? a : (a && a.slug) ? a.slug : nameToSlug(a?.name || "")))
-          .filter(Boolean);
-
-      return { pkg: pkgSlug, addons };
-    } catch {
-      return { pkg: "", addons: [] };
-    }
-  }
-
-  function safeSave(sel) {
-    // Keep the format stable for later Firebase usage
-    const pkgSlug = sel.pkg || "";
-    const addons = Array.isArray(sel.addons) ? sel.addons : [];
-
-    const pkgObj = pkgSlug
-        ? { slug: pkgSlug, name: PACKAGE_MAP[pkgSlug]?.name || pkgSlug, base: PACKAGE_MAP[pkgSlug]?.base || 0 }
-        : null;
-
-    const addonObjs = addons.map((slug) => ({
-      slug,
-      name: ADDON_MAP[slug]?.name || slug,
-      price: ADDON_MAP[slug]?.price || 0
-    }));
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ pkg: pkgObj, addons: addonObjs }));
   }
 
   function nameToSlug(name) {
@@ -78,64 +32,43 @@
     return "";
   }
 
-  // ---- URL param support (optional but nice) ----
-  function getPkgFromUrl() {
-    const url = new URL(window.location.href);
-    // support ?package= or ?pkg=
-    return url.searchParams.get("package") || url.searchParams.get("pkg") || "";
-  }
+  function safeLoad() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return { pkg: "", addons: [] };
 
-  // ---- UI sync ----
-  function setDefaultDate() {
-    const el = $("#date");
-    if (!el) return;
+      const s = JSON.parse(raw);
 
-    const now = new Date();
-    const yyyy = now.getFullYear();
-    const mm = String(now.getMonth() + 1).padStart(2, "0");
-    const dd = String(now.getDate()).padStart(2, "0");
-    el.value = `${yyyy}-${mm}-${dd}`;
-    el.min = el.value;
-  }
+      let pkgSlug = "";
+      if (typeof s.pkg === "string") pkgSlug = s.pkg;
+      else if (s.pkg && typeof s.pkg.slug === "string") pkgSlug = s.pkg.slug;
+      else if (s.pkg && typeof s.pkg.name === "string") pkgSlug = nameToSlug(s.pkg.name);
 
-  function applySelectionToForm(sel) {
-    // Package dropdown
-    const pkgSelect = $("#package");
-    if (pkgSelect && sel.pkg && PACKAGE_MAP[sel.pkg]) {
-      pkgSelect.value = sel.pkg;
+      let addons = Array.isArray(s.addons) ? s.addons : [];
+      addons = addons
+          .map((a) =>
+              typeof a === "string" ? a : (a && a.slug) ? a.slug : nameToSlug(a?.name || "")
+          )
+          .filter(Boolean);
+
+      return { pkg: pkgSlug, addons };
+    } catch {
+      return { pkg: "", addons: [] };
     }
-
-    // Addon checkboxes
-    const addonSet = new Set(sel.addons || []);
-    $$('input[name="addon"]').forEach((cb) => {
-      cb.checked = addonSet.has(cb.value);
-    });
   }
 
-  function readSelectionFromForm() {
-    const pkgSelect = $("#package");
-    const pkg = pkgSelect ? pkgSelect.value : "";
-
-    const addons = $$('input[name="addon"]:checked').map((cb) => cb.value);
-
-    return { pkg, addons };
-  }
-
-  function updateSummaryFromSelection(sel) {
+  function updateSummary(sel) {
     const pkg = PACKAGE_MAP[sel.pkg];
 
-    // Title + note
     $("#summaryTitle").textContent = pkg ? pkg.name : "Choose a package";
     $("#summaryNote").textContent = pkg
         ? "Estimate updates as you add options."
         : "Select a package to see an estimate.";
 
-    // Details
     $("#summaryPkg").textContent = pkg ? pkg.name : "—";
     $("#summaryTime").textContent = pkg ? pkg.time : "—";
     $("#summaryBase").textContent = pkg ? money(pkg.base) : "$0";
 
-    // Add-ons list
     const list = $("#summaryAddons");
     list.innerHTML = "";
 
@@ -159,93 +92,80 @@
 
     const base = pkg ? pkg.base : 0;
     const addonsTotal = addonItems.reduce((s, a) => s + (a.price || 0), 0);
-    const total = base + addonsTotal;
-
-    $("#summaryTotal").textContent = money(total);
+    $("#summaryTotal").textContent = money(base + addonsTotal);
   }
 
-  function syncAll() {
-    const sel = readSelectionFromForm();
-    safeSave(sel);
-    updateSummaryFromSelection(sel);
+  // Send your selection into Calendly as query params.
+  // Note: Calendly can capture these if you add custom questions in Calendly settings.
+  // Common pattern: a1, a2, a3... for custom answers.
+  function buildCalendlyUrl(sel) {
+    const pkg = PACKAGE_MAP[sel.pkg]?.name || "Not selected";
+    const addons = (sel.addons || [])
+        .map((slug) => ADDON_MAP[slug]?.name)
+        .filter(Boolean);
+
+    const addonsText = addons.length ? addons.join(", ") : "None";
+    const total =
+        (PACKAGE_MAP[sel.pkg]?.base || 0) +
+        (sel.addons || []).reduce((sum, slug) => sum + (ADDON_MAP[slug]?.price || 0), 0);
+
+    const url = new URL(CALENDLY_BASE);
+
+    // Put key info into custom fields:
+    url.searchParams.set("a1", `Package: ${pkg}`);
+    url.searchParams.set("a2", `Add-ons: ${addonsText}`);
+    url.searchParams.set("a3", `Estimate: $${total}`);
+
+    return url.toString();
   }
 
-  function bind() {
-    const pkgSelect = $("#package");
-    if (pkgSelect) {
-      pkgSelect.addEventListener("change", () => {
-        syncAll(); // updates localStorage + summary
+  // Calendly widget script reads data-url at load.
+  // If we want it to reflect the selected package, we re-init it after setting URL.
+  function initCalendly(sel) {
+    const el = $("#calendlyWidget");
+    if (!el) return;
+
+    const calendlyUrl = buildCalendlyUrl(sel);
+    el.setAttribute("data-url", calendlyUrl);
+
+    // If Calendly has already loaded, re-render it:
+    // (This is safe; it just re-inits the widget.)
+    const tryInit = () => {
+      if (!window.Calendly || !window.Calendly.initInlineWidget) return false;
+
+      el.innerHTML = ""; // clear existing widget
+      window.Calendly.initInlineWidget({
+        url: calendlyUrl,
+        parentElement: el
       });
+      return true;
+    };
+
+    if (!tryInit()) {
+      // If script hasn't loaded yet, poll briefly
+      let tries = 0;
+      const t = setInterval(() => {
+        tries += 1;
+        if (tryInit() || tries > 40) clearInterval(t); // ~4s max
+      }, 100);
     }
-
-    $$('input[name="addon"]').forEach((cb) => {
-      cb.addEventListener("change", () => {
-        syncAll(); // updates localStorage + summary
-      });
-    });
-
-    const form = $("#bookingForm");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // Basic client-side validation
-      const required = form.querySelectorAll("[required]");
-      let ok = true;
-      required.forEach((el) => {
-        if (!el.value) {
-          ok = false;
-          el.style.borderColor = "rgba(255,90,90,0.75)";
-        } else {
-          el.style.borderColor = "rgba(255,255,255,0.12)";
-        }
-      });
-      if (!ok) return;
-
-      // Always persist latest selection before success
-      syncAll();
-
-      // ✅ Later: send to Firebase here
-      // Example (later): addDoc(collection(db,"bookings"), payload)
-
-      const success = $("#success");
-      success.hidden = false;
-      success.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    });
-
-    const year = $("#year");
-    if (year) year.textContent = new Date().getFullYear();
-
-    // If pricing page selection changes in another tab, re-render
-    window.addEventListener("storage", (e) => {
-      if (e.key === STORAGE_KEY) {
-        const sel = safeLoad();
-        applySelectionToForm(sel);
-        updateSummaryFromSelection(sel);
-      }
-    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    setDefaultDate();
+    const year = $("#year");
+    if (year) year.textContent = new Date().getFullYear();
 
-    // 1) Load selection saved from pricing
-    let sel = safeLoad();
+    const sel = safeLoad();
+    updateSummary(sel);
+    initCalendly(sel);
 
-    // 2) URL param overrides (optional)
-    const fromUrl = getPkgFromUrl();
-    if (fromUrl && PACKAGE_MAP[fromUrl]) {
-      sel.pkg = fromUrl;
-      safeSave(sel);
-    }
-
-    // 3) Apply to form + render summary
-    applySelectionToForm(sel);
-    updateSummaryFromSelection(readSelectionFromForm());
-
-    // 4) Bind events
-    bind();
-
-    // 5) Initial save to ensure stable format
-    syncAll();
+    // If pricing selection changes in another tab, update summary + calendly
+    window.addEventListener("storage", (e) => {
+      if (e.key === STORAGE_KEY) {
+        const updated = safeLoad();
+        updateSummary(updated);
+        initCalendly(updated);
+      }
+    });
   });
 })();

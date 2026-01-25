@@ -26,7 +26,7 @@
   </section>
 
   <section class="grid">
-    <!-- Left: Summary -->
+    <!-- Left: Summary (UNCHANGED) -->
     <aside class="summary" aria-label="Selected package summary">
       <div class="summaryTop">
         <div class="pill">Selected</div>
@@ -75,115 +75,24 @@
       </div>
     </aside>
 
-    <!-- Right: Form -->
-    <section class="formCard" aria-label="Booking request form">
-      <form id="bookingForm" class="form" novalidate>
-        <div class="two">
-          <div class="field">
-            <label for="fullName">Full Name</label>
-            <input id="fullName" name="fullName" type="text" placeholder="Your name" autocomplete="name" required />
-          </div>
+    <!-- Right: Calendly (REPLACED) -->
+    <section class="formCard" aria-label="Schedule with Calendly">
+      <div class="calHead">
+        <h2 class="calTitle">Choose a time</h2>
+        <p class="calSub muted">
+          Pick a slot that works for you. Your selected package + add-ons are saved and shown on the left.
+        </p>
+      </div>
 
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="(619) 000-0000" autocomplete="tel" required />
-          </div>
-        </div>
-
-        <div class="two">
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required />
-          </div>
-
-          <div class="field">
-            <label for="area">Service Area</label>
-            <input id="area" name="area" type="text" placeholder="City / neighborhood" autocomplete="address-level2" required />
-          </div>
-        </div>
-
-        <div class="two">
-          <div class="field">
-            <label for="package">Package</label>
-            <select id="package" name="package" required>
-              <option value="" selected disabled>Select a package</option>
-              <option value="rinse-gloss">Rinse &amp; Gloss</option>
-              <option value="paint-reset">Paint Reset</option>
-              <option value="paint-lock">Paint Lock (Consultation)</option>
-            </select>
-            <div class="hint">Tip: Selecting a package updates your estimate instantly.</div>
-          </div>
-
-          <div class="field">
-            <label for="car">Vehicle Details</label>
-            <input id="car" name="car" type="text" placeholder="Year / Make / Model (e.g., 2018 BMW 330e)" required />
-          </div>
-        </div>
-
-        <div class="addonsCard">
-          <div class="addonsHead">
-            <h3>Interior Add-ons</h3>
-            <p class="muted">Optional — select only if you want them.</p>
-          </div>
-
-          <label class="addonOption" for="addonEssentials">
-            <input id="addonEssentials" type="checkbox" name="addon" value="interior-essentials" />
-            <span class="addonMeta">
-              <span class="addonName">Interior Essentials</span>
-              <span class="addonDesc">Vacuum + wipe down + windows</span>
-            </span>
-            <span class="addonPrice">$39</span>
-          </label>
-
-          <label class="addonOption" for="addonReset">
-            <input id="addonReset" type="checkbox" name="addon" value="interior-reset" />
-            <span class="addonMeta">
-              <span class="addonName">Interior Reset</span>
-              <span class="addonDesc">Deep clean + shampoo + crevices</span>
-            </span>
-            <span class="addonPrice">$99</span>
-          </label>
-        </div>
-
-        <div class="two">
-          <div class="field">
-            <label for="date">Preferred Date</label>
-            <input id="date" name="date" type="date" required />
-          </div>
-
-          <div class="field">
-            <label for="time">Preferred Time</label>
-            <select id="time" name="time" required>
-              <option value="" selected disabled>Select a time</option>
-              <option>8:00 AM</option>
-              <option>9:00 AM</option>
-              <option>10:00 AM</option>
-              <option>11:00 AM</option>
-              <option>12:00 PM</option>
-              <option>1:00 PM</option>
-              <option>2:00 PM</option>
-              <option>3:00 PM</option>
-              <option>4:00 PM</option>
-              <option>5:00 PM</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="notes">Notes</label>
-          <textarea id="notes" name="notes" rows="4" placeholder="Location details, paint condition, pets, stains, special requests..."></textarea>
-        </div>
-
-        <button class="submitBtn" type="submit">Request Confirmation</button>
-
-        <div id="success" class="success" hidden>
-          <div class="successIcon" aria-hidden="true">✓</div>
-          <div>
-            <h3>Request received</h3>
-            <p>Thanks — we’ll contact you shortly to confirm your time and final quote.</p>
-          </div>
-        </div>
-      </form>
+      <!-- Calendly inline widget begin -->
+      <div
+              id="calendlyWidget"
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/abdulbasitazizi816/new-meeting"
+              style="min-width:320px;height:740px;"
+      ></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
     </section>
   </section>
 
