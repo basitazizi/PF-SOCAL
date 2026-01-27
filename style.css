@@ -260,7 +260,7 @@ body{
   .cta-buttons{
     display:grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap:12px;
+    gap:11px;
     justify-content:center;
     align-items:stretch;
     padding: 0 6px;
