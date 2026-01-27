@@ -92,7 +92,7 @@ body{
 }
 .social-icons{ display:flex; gap:10px; }
 .social-icons a{
-  width:30px;height:30px;
+  width:50px;height:50px;
   background:var(--accent);
   color:#fff;
   border-radius:50%;
@@ -170,39 +170,37 @@ body{
    CTA BUTTONS (FIXED GRID)
    ========================= */
 
-.cta-buttons{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr); /* ✅ 4 in one row (desktop) */
-  gap:14px;
-  max-width:100%;
-  margin-top:24px;
-}
+
+
+
 
 /* ==========================
-   CTA BUTTONS (FIXED)
+   CTA BUTTONS (FINAL FIX)
    Desktop: 4 in one row
    Mobile: 2x2 grid
    ========================== */
 
-/* Desktop / default */
+/*/!* Desktop default *!*/
 .cta-buttons{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  justify-content:flex-start;
-  flex-wrap:nowrap;            /* ✅ keep 4 in one row on desktop */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  width: min(900px, 100%);
+  margin-top: 24px;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Base button */
 .btn-primary{
-  background: var(--accent);   /* ✅ all blue by default */
+  background: var(--accent);
   color:#fff;
   border:1px solid transparent;
-  padding:12px 22px;           /* ✅ smaller size */
+  padding:12px 18px;
   border-radius:999px;
   font-weight:800;
-  font-size: clamp(.88rem, 1.15vw, 1rem); /* ✅ scales down nicely */
-  line-height:1;               /* ✅ helps keep text centered */
+  font-size: clamp(.88rem, 1.15vw, 1rem);
+  line-height:1;
   cursor:pointer;
   transition:transform .2s, background .2s, border-color .2s, box-shadow .2s;
   display:inline-flex;
@@ -210,14 +208,13 @@ body{
   justify-content:center;
   text-decoration:none;
 
-  /* ✅ keep text inside the pill */
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 
-  /* ✅ consistent width so text doesn’t push weird */
-  min-width: 150px;
-  height: 48px;
+  height:48px;
+  width:100%;
+  min-width:0;
 }
 
 /* Hover */
@@ -227,66 +224,48 @@ body{
   border-color: rgba(255,255,255,0.22);
 }
 
-/* If you still want “outline style” buttons,
-   keep them blue but outlined */
+/* Outline style (blue-themed) */
 .btn-primary.btn-primary-outline{
-  background: rgb(37, 150, 190);
-  border: 1px solid rgba(37,150,190,0.65);
+  background: rgb(24, 169, 220) !important;
+  border: 1px solid rgba(37,150,190,0.75) !important;
+  color:#fff !important;
   box-shadow: 0 18px 45px rgba(0,0,0,0.45);
 }
 .btn-primary.btn-primary-outline:hover{
-  background: rgb(37, 150, 190);
-  border-color: rgba(37,150,190,0.85);
+  background: rgb(24, 169, 220) !important;
+  border-color: rgba(37,150,190,0.95) !important;
 }
 
-/*/!* Friday = pink special *!*/
+/* Friday pink */
 .btn-primary.btn-friday{
   background: linear-gradient(180deg, #ff4fd8, #ff77e5);
   border: 1px solid rgba(255, 110, 230, 0.65);
   box-shadow:
           0 0 0 2px rgba(37,150,190,0.12),
           0 22px 55px rgba(255, 79, 216, 0.22),
-          0 10px 35px rgb(255, 57, 209);
-  font-size: .82rem; /* smaller button text */
-  line-height: 1;
-}
-.btn-primary.btn-friday:hover{
-  background: linear-gradient(180deg, #ff39d1, #ff6fe0);
-  transform:translateY(-1px);
+          0 10px 35px rgba(255, 57, 209, 0.55);
 }
 
-/* ✅ Tablet/mobile: 2 on top, 2 under */
-@media (max-width: 900px){
+/* ✅ Mobile: FORCE 2x2 */
+@media (max-width: 768px){
   .cta-buttons{
-    display:grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap:11px;
-    justify-content:center;
-    align-items:stretch;
-    padding: 0 6px;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 0 12px;
+    width: 100%;
   }
 
   .btn-primary{
-    width:100%;
-    min-width:0;                 /* ✅ allow grid to control width */
-    height:46px;
-    padding:12px 14px;
-    font-size: .92rem;           /* ✅ keeps text inside */
+    height: 46px;
+    font-size: .92rem;
+    padding: 12px 14px;
   }
-}
 
-/* ✅ Small phones: slightly smaller text if needed */
-@media (max-width: 420px){
-  .btn-primary{
-    font-size: .86rem;
-    height:44px;
-  }
-}
-
-@media (max-width: 900px){
+  /* Ensure outline buttons keep their blue style on small screens */
   .btn-primary.btn-primary-outline{
-    background: rgba(37,150,190,0.14) !important;
-    border-color: rgba(37,150,190,0.75) !important;
+    background: rgb(24, 169, 220) !important;
+    border-color: rgba(37,150,190,0.95) !important;
     color: #fff !important;
   }
 }
