@@ -33,49 +33,49 @@ body{
 /* ==========================
    LOGO (IMAGE + TEXT)
    ========================== */
+/* --- HEADER --- */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 14px;              /* tighter = closer to corners */
+  background:transparent;
+  position:absolute;
+  width:100%;
+  z-index:1000;
+}
+
+/* ==========================
+   LOGO (HEADER: IMAGE ONLY)
+   ========================== */
 .logo{
   display:flex;
   align-items:center;
-  gap:20px;
-}
-
-.logo img{
-  width:75px;          /* logo size */
-  height:75px;
-  object-fit:contain;
-}
-
-.logo-text h2{
-  font-family:'Montserrat', sans-serif;
-  font-size:1.55rem;
-  font-weight:800;
-  line-height:1;
+  gap:0;
   margin:0;
+  padding:0;
+
+  /* important: prevents logo from forcing spacing */
+  flex:0 0 auto;
 }
 
-.logo-text span{
+.logo-mark{
+  width:130px;                    /* bigger on desktop */
+  height:auto;
   display:block;
-  margin-top:6px;
-  font-size:.65rem;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--muted2);
+  object-fit:contain;
+
+  /* optional: micro nudge closer to corner */
+  margin-left:-15px;
+  margin-top:-45px;
 }
 
-.logo-text h2{
-  font-family:'Montserrat',sans-serif;
-  font-size:1.5rem;
-  font-weight:800;
-  line-height:1;
+/* ✅ keep code but hide it (so you don’t delete it) */
+.logo-text{
+  display:none;
 }
-.logo-text span{
-  display:block;
-  margin-top:6px;
-  font-size:.65rem;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:var(--muted2);
-}
+
+/* --- NAV LINKS --- */
 .nav-links{ display:flex; gap:30px; }
 .nav-links a{
   text-decoration:none;
@@ -101,15 +101,42 @@ body{
   font-size:.8rem;
   transition:transform .2s;
 }
+
 .social-icons a:hover{ transform:scale(1.08); }
 .menu-toggle{
   display:none;
-  font-size:1.5rem;
+  font-size:3.0rem;
   cursor:pointer;
   background:none;
   border:none;
   color:#fff;
+
+  /* nudge the button upward */
+  transform: translateY(-8px);
+  transition: transform .18s ease;
 }
+/*.social-icons{*/
+/*  align-self:flex-start;*/
+/*  margin-top:1px;*/
+/*}*/
+
+
+/* ==========================
+   MOBILE
+   ========================== */
+@media (max-width: 900px){
+  .navbar{ padding:8px 10px; }
+
+  .logo-mark{
+    width:105px;                  /* bigger on phone but not crazy */
+    margin-left:-25px;
+    margin-top:-50px;
+  }
+
+  .social-icons{ display:none; }
+  .menu-toggle{ display:block; }
+}
+
 
 /* --- HERO --- */
 .hero{
@@ -139,20 +166,20 @@ body{
 .tagline{
   color:var(--accent);
   font-weight:800;
-  font-size:.85rem;
+  font-size:.95rem;
   letter-spacing:2px;
   margin-bottom:18px;
   text-transform:uppercase;
   display:inline-block;
 }
-.tagline::before{
-  content:'';
-  display:inline-block;
-  width:22px;height:2px;
-  background:var(--accent);
-  vertical-align:middle;
-  margin-right:10px;
-}
+/*.tagline::before{*/
+/*  content:'';*/
+/*  display:inline-block;*/
+/*  width:22px;height:2px;*/
+/*  background:var(--accent);*/
+/*  vertical-align:middle;*/
+/*  margin-right:10px;*/
+/*}*/
 .hero-content h1{
   font-family:'Montserrat',sans-serif;
   font-size:4rem;
@@ -375,8 +402,8 @@ body{
 }
 
 .lux-footer-socials a{
-  width: 42px;
-  height: 42px;
+  width: 60px;
+  height: 60px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.14);
   background: rgb(0, 0, 0);
