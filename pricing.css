@@ -272,8 +272,118 @@ html, body{
   box-shadow: 0 0 0 1px rgba(37,150,190,0.22), 0 22px 70px rgba(0,0,0,0.45);
 }
 
-/* ===== Compare table ===== */
-.compare{ margin-top:26px; padding-top:6px; }
+/*!* ===== Compare table ===== *!*/
+/*.compare{ margin-top:26px; padding-top:6px; }*/
+/*.compareHead{ text-align:center; margin-bottom:14px; }*/
+/*.compareHead h2{*/
+/*  font-family:"Montserrat", sans-serif;*/
+/*  font-weight:800;*/
+/*  font-size:1.6rem;*/
+/*}*/
+/*.compareHead p{ margin-top:6px; color:rgba(255,255,255,0.65); }*/
+
+/*.tableWrap{*/
+/*  background:rgba(255,255,255,0.03);*/
+/*  border:1px solid rgba(255,255,255,0.10);*/
+/*  border-radius:var(--radius);*/
+/*  overflow:auto;*/
+/*  box-shadow:0 18px 55px rgba(0,0,0,0.35);*/
+/*}*/
+/*.compareTable{*/
+/*  width:100%;*/
+/*  border-collapse:separate;*/
+/*  border-spacing:0;*/
+/*  min-width:720px;*/
+/*}*/
+/*.compareTable thead th{*/
+/*  text-align:left;*/
+/*  padding:16px 14px;*/
+/*  font-family:"Montserrat", sans-serif;*/
+/*  font-weight:800;*/
+/*  color:rgba(255,255,255,0.90);*/
+/*  background:rgba(255,255,255,0.02);*/
+/*  border-bottom:1px solid rgba(255,255,255,0.10);*/
+/*}*/
+/*.compareTable tbody td{*/
+/*  padding:14px;*/
+/*  border-bottom:1px solid rgba(255,255,255,0.08);*/
+/*  color:rgba(255,255,255,0.72);*/
+/*}*/
+/*.compareTable tbody tr:last-child td{ border-bottom:none; }*/
+/*.yes{ color:rgba(255,255,255,0.92); font-weight:900; text-align:center; }*/
+/*.no{ color:rgba(255,255,255,0.40); text-align:center; }*/
+/*!* =========================*/
+/*   MOBILE FIX: SHOW ALL COLUMNS*/
+/*   ========================= *!*/
+/*@media (max-width: 640px){*/
+
+/*  .tableWrap{*/
+/*    overflow: hidden;              !* ✅ no sideways scroll *!*/
+/*    border-radius: 18px;*/
+/*  }*/
+
+/*  .compareTable{*/
+/*    min-width: 0;                  !* ✅ remove the 720px lock *!*/
+/*    width: 100%;*/
+/*    table-layout: fixed;           !* ✅ force columns to fit screen *!*/
+/*  }*/
+
+/*  !* Header cells *!*/
+/*  .compareTable thead th{*/
+/*    padding: 14px 10px;*/
+/*    font-size: .85rem;*/
+/*    letter-spacing: .2px;*/
+/*    white-space: nowrap;*/
+/*  }*/
+
+/*  !* Body cells *!*/
+/*  .compareTable tbody td{*/
+/*    padding: 14px 10px;*/
+/*    font-size: .85rem;*/
+/*    line-height: 1.2;*/
+/*    white-space: normal;           !* ✅ allow text to wrap *!*/
+/*    word-break: break-word;*/
+/*  }*/
+
+/*  !* Make first column wider (feature names) *!*/
+/*  .compareTable thead th:first-child,*/
+/*  .compareTable tbody td:first-child{*/
+/*    width: 52%;*/
+/*  }*/
+
+/*  !* Other columns share the remaining width evenly *!*/
+/*  .compareTable thead th:not(:first-child),*/
+/*  .compareTable tbody td:not(:first-child){*/
+/*    width: 16%;*/
+/*    text-align: center;*/
+/*  }*/
+
+/*  !* Yes/No look cleaner on small screens *!*/
+/*  .yes, .no{*/
+/*    font-size: .95rem;*/
+/*    font-weight: 900;*/
+/*  }*/
+/*}*/
+/*!* =========================*/
+/*   FIX COMPARE TITLE MOBILE*/
+/*   ========================= *!*/
+
+/*@media (max-width: 768px){*/
+
+/*  .compareHead h2{*/
+/*    font-size: 1.35rem;   !* smaller title *!*/
+/*    line-height: 1.2;*/
+/*  }*/
+
+/*  .compareHead p{*/
+/*    font-size: .9rem;     !* smaller subtitle *!*/
+/*    line-height: 1.4;*/
+/*  }*/
+
+/*}*/
+
+     /* ===== Compare table ===== */
+   .compare{ margin-top:26px; padding-top:6px; }
 .compareHead{ text-align:center; margin-bottom:14px; }
 .compareHead h2{
   font-family:"Montserrat", sans-serif;
@@ -312,6 +422,80 @@ html, body{
 .compareTable tbody tr:last-child td{ border-bottom:none; }
 .yes{ color:rgba(255,255,255,0.92); font-weight:900; text-align:center; }
 .no{ color:rgba(255,255,255,0.40); text-align:center; }
+/* =========================
+   MOBILE FIX: SHOW ALL COLUMNS
+   ========================= */
+@media (max-width: 640px){
+
+  .tableWrap{
+    overflow: hidden;              /* ✅ no sideways scroll */
+    border-radius: 18px;
+  }
+
+  .compareTable{
+    min-width: 0;                  /* ✅ remove the 720px lock */
+    width: 100%;
+    table-layout: fixed;           /* ✅ force columns to fit screen */
+  }
+
+  /* Header cells: allow wrapping so long titles don't overflow */
+  .compareTable thead th{
+    padding: 14px 10px;
+    font-size: .70rem;
+    letter-spacing: .2px;
+    white-space: normal;           /* allow wrapping on small screens */
+    word-break: break-word;
+    hyphens: auto;
+    line-height: 1.15;
+  }
+
+  /* Body cells */
+  .compareTable tbody td{
+    padding: 14px 10px;
+    font-size: .85rem;
+    line-height: 1.2;
+    white-space: normal;           /* ✅ allow text to wrap */
+    word-break: break-word;
+  }
+
+  /* Make first column wider (feature names) */
+  .compareTable thead th:first-child,
+  .compareTable tbody td:first-child{
+    width: 52%;
+    min-width: 120px;
+  }
+
+  /* Other columns share the remaining width evenly; give a sensible min-width */
+  .compareTable thead th:not(:first-child),
+  .compareTable tbody td:not(:first-child){
+    width: 16%;
+    min-width: 56px;
+    text-align: center;
+  }
+
+  /* Yes/No look cleaner on small screens */
+  .yes, .no{
+    font-size: .95rem;
+    font-weight: 900;
+  }
+}
+/* =========================
+   FIX COMPARE TITLE MOBILE
+   ========================= */
+
+@media (max-width: 768px){
+
+  .compareHead h2{
+    font-size: 1.35rem;   /* smaller title */
+    line-height: 1.2;
+  }
+
+  .compareHead p{
+    font-size: .9rem;     /* smaller subtitle */
+    line-height: 1.4;
+  }
+
+}
 
 /* Footer */
 .lux-footer{

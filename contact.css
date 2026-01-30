@@ -96,7 +96,7 @@ html,body{
     border:1px solid rgba(37,150,190,0.55);
     color:rgba(255,255,255,0.92);
     font-weight:800;
-    font-size:0.78rem;
+    font-size:0.60rem;
     position:relative;
 }
 
@@ -182,4 +182,39 @@ html,body{
     .pageHead h1{font-size:1.8rem;}
     .phone{font-size:1.6rem;}
     .wrap{padding-left:14px;padding-right:14px;}
+}
+/* ✅ Email line styling */
+.emailLine{
+    margin-top:10px;
+    color:rgba(255,255,255,0.82);
+    position:relative;
+    line-height:1.5;
+}
+.emailLink{
+    color:rgba(255,255,255,0.95);
+    font-weight:800;
+    text-decoration:none;
+}
+.emailLink:hover{
+    text-decoration:underline;
+    text-underline-offset:6px;
+}
+
+/* ✅ FORCE 1-row buttons (desktop + mobile) */
+.actions{
+    margin-top:16px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:nowrap;          /* ✅ changed (no wrap) */
+    position:relative;
+}
+
+/* ✅ Make buttons fit in one row on phone */
+.actions a{
+    flex:1 1 0;                /* ✅ each button shares space */
+    min-width:0;               /* ✅ prevents overflow */
+    padding:12px 10px;         /* ✅ tighter for mobile */
+    font-size:.92rem;          /* ✅ smaller text */
+    white-space:nowrap;        /* ✅ keep in one line */
 }
