@@ -1,7 +1,7 @@
 /* --- RESET & BASICS --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root{
-  --accent:#2596be;
+  --accent: #2596be;
   --bg:#0f1014;
   --white:#ffffff;
   --muted:rgba(255,255,255,0.68);
@@ -253,24 +253,32 @@ body{
 
 /* Outline style (blue-themed) */
 .btn-primary.btn-primary-outline{
-  background: rgb(24, 169, 220) !important;
-  border: 1px solid rgba(37,150,190,0.75) !important;
+  background: rgb(37, 150, 190) !important;
+  border: 1px solid rgb(37, 150, 190) !important;
   color:#fff !important;
   box-shadow: 0 18px 45px rgba(0,0,0,0.45);
 }
 .btn-primary.btn-primary-outline:hover{
   background: rgb(24, 169, 220) !important;
-  border-color: rgba(37,150,190,0.95) !important;
+  border-color: rgb(37, 150, 190) !important;
 }
 
 /* Friday pink */
+/*.btn-primary.btn-friday{*/
+/*  background: linear-gradient(180deg, rgba(255, 79, 216, 0.92), rgba(255, 79, 216, 0.92));*/
+/*  border: 1px solid rgba(255, 110, 230, 0.65);*/
+
+/*}*/
 .btn-primary.btn-friday{
-  background: linear-gradient(180deg, #ff4fd8, #ff77e5);
+  background: linear-gradient(180deg, rgba(255, 79, 216, 0.92), rgba(255, 79, 216, 0.92));
   border: 1px solid rgba(255, 110, 230, 0.65);
-  box-shadow:
-          0 0 0 2px rgba(37,150,190,0.12),
-          0 22px 55px rgba(255, 79, 216, 0.22),
-          0 10px 35px rgba(255, 57, 209, 0.55);
+  box-shadow: 0 8px 30px rgba(255,79,216,0.18), 0 2px 8px rgba(255,79,216,0.22) inset;
+  text-shadow: 0 2px 8px rgba(255,79,216,0.06);
+  transition: box-shadow .18s ease, transform .18s ease, background .18s ease;
+}
+.btn-primary.btn-friday:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 60px rgba(255,79,216,0.28), 0 4px 14px rgba(255,79,216,0.30) inset;
 }
 
 /* ✅ Mobile: FORCE 2x2 */
@@ -291,8 +299,8 @@ body{
 
   /* Ensure outline buttons keep their blue style on small screens */
   .btn-primary.btn-primary-outline{
-    background: rgb(24, 169, 220) !important;
-    border-color: rgba(37,150,190,0.95) !important;
+    background: rgb(37, 150, 190) !important;
+    border-color: rgb(37, 150, 190) !important;
     color: #fff !important;
   }
 }
@@ -908,3 +916,16 @@ body{
     font-size:.88rem;
   }
 }
+.lux-footer-links{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color: rgba(255,255,255,0.62);
+  font-size: .95rem;
+}
+.lux-footer-links a{
+  color: rgba(255,255,255,0.72);
+  text-decoration:none;
+}
+.lux-footer-links a:hover{ color:#fff; }
+.lux-footer-links span{ color: rgba(255,255,255,0.35); }

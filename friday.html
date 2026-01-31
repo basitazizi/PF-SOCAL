@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friday Specials | Pure Finish SoCal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="friday.css" />
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <a class="back" href="index.html" aria-label="Back to home">← Back</a>
+
+  <!-- Optional logo (if you want) -->
+  <!-- <img class="top-logo" src="logo.png" alt="Pure Finish SoCal"> -->
+
+  <div class="top-actions">
+    <a class="pill-link" href="#packages">Packages</a>
+    <a class="pill-link" href="#schedule">Schedule</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Fridays Only • Limited Availability
+    </div>
+
+    <h1 class="hero-title">
+      Friday <span class="glowPink">Glow</span> &amp; <span class="glowBlue">Night</span> Refresh
+    </h1>
+
+    <p class="hero-sub">
+      Same standard, different feeling. Two Friday-only refresh packages designed for clean pull-ups. You can schedule at the end of the page.
+    </p>
+
+    <div class="hero-quick">
+      <div class="quick-card pink">
+        <div class="quick-top">
+          <span class="quick-name">Friday Glow Refresh</span>
+          <span class="quick-tag">~45–50 min</span>
+        </div>
+        <div class="quick-price">$99</div>
+      </div>
+
+      <div class="quick-card blue">
+        <div class="quick-top">
+          <span class="quick-name">Friday Night Refresh</span>
+          <span class="quick-tag">~45–50 min</span>
+        </div>
+        <div class="quick-price">$110</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#schedule">Schedule Appointment</a>
+      <a class="btn btn-ghost" href="#notes">Read Service Notes</a>
+    </div>
+
+    <p class="micro">
+      Book ahead — we’ll confirm your slot. This booking is for <b>Fridays only</b>.
+    </p>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<main class="main" id="packages">
+  <section class="section-head">
+    <h2>Choose Your Friday Refresh</h2>
+    <p>Two fast, high-impact options. Both are rinseless-safe and designed for mobile service.</p>
+  </section>
+
+  <section class="grid">
+    <!-- PINK PACKAGE -->
+    <article class="package pink" data-package="glow">
+      <div class="package-head">
+        <div>
+          <div class="package-kicker">Friday Specials</div>
+          <h3 class="package-title">Friday Glow Refresh™</h3>
+          <div class="package-meta">Fridays Only • Limited Availability</div>
+        </div>
+
+        <div class="package-price">
+          <div class="price">$99</div>
+          <div class="time">~45–50 minutes</div>
+        </div>
+      </div>
+
+      <div class="package-body">
+        <div class="cols">
+          <div class="col">
+            <h4>Exterior Refresh</h4>
+            <ul>
+              <li>Rinseless hand wash <span>(panel-by-panel, controlled method)</span></li>
+              <li>Exterior windows cleaned</li>
+              <li>Wheels cleaned <span>(clean, natural finish — no heavy shine)</span></li>
+            </ul>
+          </div>
+
+          <div class="col">
+            <h4>Interior Glow Refresh</h4>
+            <ul>
+              <li>Cabin refresh vacuum <span>(front &amp; rear seating areas)</span></li>
+              <li>High-touch surface cleaning</li>
+              <li>Steering wheel, center console, cup holders</li>
+              <li>Door handles &amp; buttons</li>
+              <li>Interior windows cleaned</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="package-foot">
+          <button class="selectBtn" type="button" data-select="glow">
+            Select Glow ($99)
+          </button>
+          <p class="footnote">Best for glow-ups + quick pull-ups.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- BLUE PACKAGE -->
+    <article class="package blue" data-package="night">
+      <div class="package-head">
+        <div>
+          <div class="package-kicker">Friday Specials</div>
+          <h3 class="package-title">Friday Night Refresh™</h3>
+          <div class="package-meta">Fridays Only • Limited Availability</div>
+        </div>
+
+        <div class="package-price">
+          <div class="price">$110</div>
+          <div class="time">~45–50 minutes</div>
+        </div>
+      </div>
+
+      <div class="package-body">
+        <div class="cols">
+          <div class="col">
+            <h4>Refresh Includes</h4>
+            <ul>
+              <li>Rinseless hand wash <span>(panel-by-panel method)</span></li>
+              <li>Wheels &amp; tires cleaned &amp; dressed</li>
+              <li>Exterior glass cleaned</li>
+              <li>Door jamb wipe-down</li>
+            </ul>
+          </div>
+
+          <div class="col">
+            <h4>Interior Care + Final Touch</h4>
+            <ul>
+              <li>Cabin refresh vacuum <span>(front &amp; rear seating areas)</span></li>
+              <li>Surface wipe-down <span>(dash, center console, door panels)</span></li>
+              <li>Interior windows cleaned</li>
+              <li>Light, neutral interior finish</li>
+              <li>Gloss consistency check + “pull-up ready” inspection</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="package-foot">
+          <button class="selectBtn" type="button" data-select="night">
+            Select Night ($110)
+          </button>
+          <p class="footnote">Designed for date nights + clean resets.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- NOTES / DISCLAIMER -->
+  <section class="notes" id="notes">
+    <div class="notes-card">
+      <h3>Service Notes</h3>
+      <ul>
+        <li>Maintenance-level interior refresh <span>(not a full interior detail)</span></li>
+        <li>Heavy debris, pet hair, sand, or stains may require additional services</li>
+        <li>Cargo / trunk area not included</li>
+        <li>Fridays only • Limited slots available</li>
+      </ul>
+
+      <div class="notes-line"></div>
+
+      <p class="notes-mini">
+        If your vehicle needs deeper correction or heavy interior work, we’ll recommend the right package after inspection.
+      </p>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="schedule" id="schedule">
+    <div class="section-head">
+      <h2>Schedule Your Friday Appointment</h2>
+      <p>
+        Choose your package, then book your Friday slot below.
+        We’ll confirm availability and lock you in for Friday.
+      </p>
+    </div>
+
+    <div class="schedule-grid">
+      <!-- LEFT: booking details -->
+      <aside class="booking-card" aria-label="Booking details">
+        <div class="selected">
+          <div class="selected-label">Selected package</div>
+          <div class="selected-name" id="selectedName">None selected</div>
+          <div class="selected-sub" id="selectedSub">Tap “Select” on a package above.</div>
+        </div>
+
+        <div class="booking-actions">
+          <a class="btn btn-primary wide" href="#calendly">Open Scheduler</a>
+          <a class="btn btn-ghost wide" href="tel:+16199869444">Call: (619) 986-9444</a>
+          <a class="btn btn-ghost wide" href="sms:+16199869444">Text Us</a>
+        </div>
+
+        <div class="booking-mini">
+          <p><b>Heads up:</b> Friday bookings are limited. Book early and we’ll confirm your time.</p>
+          <p class="tiny">By booking, you agree to our service notes above.</p>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Calendly -->
+      <div class="calendly-wrap" id="calendly" aria-label="Calendly scheduler">
+        <!-- Calendly inline widget begin -->
+        <div
+                class="calendly-inline-widget"
+                data-url="https://calendly.com/aziziabdulbasit35/friday-special?primary_color=ff00e3"
+                style="min-width:320px;height:700px;">
+        </div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="brand">Pure Finish SoCal</div>
+        <div class="footer-muted">Fridays only • Limited availability</div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-muted">© <span id="year"></span> Pure Finish SoCal. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script src="friday.js"></script>
+</body>
+</html>
