@@ -534,3 +534,15 @@ html, body{
   .addonsGrid{ grid-template-columns:1fr; }
   .heroCard h1{ font-size:1.65rem; }
 }
+.addonNote {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(37, 150, 190, 0.12);
+  border: 1px solid rgba(37, 150, 190, 0.25);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-weight: 600;
+  text-align: center;
+}

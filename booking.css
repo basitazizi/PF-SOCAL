@@ -227,3 +227,19 @@ html,body{
   .wrap{padding-left:14px;padding-right:14px;}
   .calendly-inline-widget{height:640px !important;}
 }
+.cancellationPolicy {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.cancellationPolicy strong {
+  color: rgba(255, 255, 255, 0.90);
+  font-weight: 700;
+}
