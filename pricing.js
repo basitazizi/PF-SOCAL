@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const pkgNameToSlug = (name) => {
     const n = String(name || "").toLowerCase();
-    if (n.includes("rinse")) return "rinse-gloss";
-    if (n.includes("paint reset") || n.includes("reset")) return "paint-reset";
-    if (n.includes("paint lock") || n.includes("lock")) return "paint-lock";
+    if (n.includes("maintain") || n.includes("rinse")) return "rinse-gloss";
+    if (n.includes("restore") || n.includes("paint reset") || n.includes("reset")) return "paint-reset";
+    if (n.includes("protect") || n.includes("paint lock") || n.includes("lock")) return "paint-lock";
     return "";
   };
 

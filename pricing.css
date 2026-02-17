@@ -73,6 +73,19 @@ html, body{
   line-height:1.6;
 }
 
+.packageMetaNote{
+  margin-top:14px;
+  margin-bottom:6px;
+  text-align:center;
+  color:rgba(255,255,255,0.72);
+  font-size:.9rem;
+  line-height:1.55;
+  padding:11px 14px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+  border-radius:14px;
+}
+
 /* cards grid */
 .cards{
   margin-top:22px;
@@ -88,14 +101,35 @@ html, body{
   box-shadow:0 18px 55px rgba(0,0,0,0.45);
   position:relative;
   overflow:hidden;
+  display:flex;
+  flex-direction:column;
 }
 .planTop{ text-align:center; }
 .planName{
+  margin-top:0;
   font-family:"Montserrat", sans-serif;
   font-weight:800;
-  letter-spacing:1.4px;
-  font-size:.88rem;
-  color:rgba(255,255,255,0.70);
+  letter-spacing:.3px;
+  font-size:1.45rem;
+  color:#fff;
+  text-shadow:0 0 18px rgba(37,150,190,0.28);
+}
+.planLabel{
+  margin-top:4px;
+  font-family:"Montserrat", sans-serif;
+  font-weight:700;
+  letter-spacing:1px;
+  font-size:.82rem;
+  line-height:1.2;
+  min-height:2.4em;
+  color:rgba(255,255,255,0.72);
+  text-transform:uppercase;
+}
+.planLabelFocus{
+  display:block;
+  margin-top:3px;
+  color:rgba(143,216,242,0.95);
+  font-weight:800;
 }
 .planPrice{
   margin-top:12px;
@@ -116,6 +150,16 @@ html, body{
   letter-spacing:1.2px;
   font-size:.85rem;
 }
+.designFor{
+  margin-top:14px;
+  margin-bottom:8px;
+  font-family:"Montserrat", sans-serif;
+  font-weight:800;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  color:#8fd8f2;
+  font-size:.84rem;
+}
 .features{
   margin-top:16px;
   list-style:none;
@@ -130,10 +174,43 @@ html, body{
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
 }
+.features li.ceramicFocus{
+  box-shadow:0 2px 8px rgba(255,255,255,0.06);
+}
 .features li.muted{ color:rgba(255,255,255,0.55); }
 
+.fitList{
+  list-style:none;
+  display:grid;
+  gap:10px;
+  color:rgba(255,255,255,0.86);
+  padding:0 2px;
+  margin-bottom:16px;
+}
+.fitList li{
+  position:relative;
+  padding:11px 12px 11px 34px;
+  border-radius:14px;
+  background:linear-gradient(90deg, rgba(37,150,190,0.18), rgba(255,255,255,0.03));
+  border:1px solid rgba(143,216,242,0.35);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.03);
+  font-weight:700;
+}
+.fitList li::before{
+  content:"";
+  position:absolute;
+  left:12px;
+  top:50%;
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  transform:translateY(-50%);
+  background:radial-gradient(circle at 35% 35%, #d8f4ff, #66c7eb 60%, #2f99c1 100%);
+  box-shadow:0 0 0 3px rgba(102,199,235,0.16);
+}
+
 .chooseBtn{
-  margin-top:16px;
+  margin-top:auto;
   width:100%;
   padding:13px 14px;
   border-radius:999px;
@@ -171,6 +248,31 @@ html, body{
   border-radius:50%;
   background:radial-gradient(circle, rgba(37,150,190,0.9), transparent 60%);
   filter:blur(2px);
+}
+
+.planCard.protectFocus{
+  border-color:rgba(143,216,242,0.42);
+  box-shadow:0 0 0 1px rgba(143,216,242,0.16), 0 22px 70px rgba(0,0,0,0.55);
+}
+.planCard.protectFocus::before{
+  content:"";
+  position:absolute;
+  inset:-170px -120px auto auto;
+  width:330px;
+  height:330px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(143,216,242,0.52), transparent 64%);
+  filter:blur(4px);
+  opacity:.82;
+  pointer-events:none;
+}
+.planCard.protectFocus .chooseBtn{
+  background:rgba(37,150,190,0.95);
+  border-color:rgba(37,150,190,0.35);
+}
+.planCard.protectFocus .chooseBtn:hover{
+  background:rgba(37,150,190,1);
+  border-color:rgba(255,255,255,0.25);
 }
 
 /* ===== Add-ons ===== */
@@ -533,6 +635,7 @@ html, body{
   .cards{ grid-template-columns:1fr; }
   .addonsGrid{ grid-template-columns:1fr; }
   .heroCard h1{ font-size:1.65rem; }
+  .packageMetaNote{ font-size:.85rem; }
 }
 .addonNote {
   margin-top: 10px;

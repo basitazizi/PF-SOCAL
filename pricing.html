@@ -13,29 +13,26 @@
 </head>
 
 <body>
-<!-- Minimal top row: back only -->
 <header class="top">
   <a class="backBtn" href="index.html" aria-label="Back to homepage">
-    <span class="backIcon" aria-hidden="true">←</span>
+    <span class="backIcon" aria-hidden="true">&larr;</span>
     <span>Back</span>
   </a>
 </header>
 
 <main class="wrap">
-  <!-- Hero -->
   <section class="hero" aria-label="Pricing header">
     <div class="heroCard">
       <h1>Choose Your Package</h1>
-      <p>Premium mobile detailing — pick the level that fits your finish.</p>
+      <p>Premium mobile detailing - pick the level that fits your finish.</p>
     </div>
   </section>
 
-  <!-- Packages -->
   <section class="cards" aria-label="Package cards">
-    <!-- RINSE & GLOSS -->
     <article class="planCard">
       <div class="planTop">
-        <div class="planName">RINSE &amp; GLOSS</div>
+        <div class="planName">Maintain</div>
+        <div class="planLabel">Rinse &amp; Gloss</div>
         <div class="planPrice">
           <span class="amountText">Starting</span>
           <span class="currency">$</span>
@@ -52,23 +49,30 @@
         <li>30-day sealant</li>
       </ul>
 
-      <button class="chooseBtn" type="button" data-package="RINSE & GLOSS" data-price="160">
+      <div class="designFor">Designed For:</div>
+      <ul class="fitList">
+        <li>Daily drivers</li>
+        <li>Routine maintenance</li>
+        <li>Vehicles needing a refresh</li>
+      </ul>
+
+      <button class="chooseBtn" type="button" data-package="Maintain" data-price="160">
         Choose this package
       </button>
     </article>
 
-    <!-- FEATURED -->
     <article class="planCard featured">
       <div class="featuredRing" aria-hidden="true"></div>
 
       <div class="planTop">
-        <div class="planName">PAINT RESET</div>
+        <div class="planName">Restore</div>
+        <div class="planLabel">Paint Reset</div>
         <div class="planPrice">
           <span class="amountText">Starting</span>
           <span class="currency">$</span>
           <span class="amount" data-month="210">210</span>
         </div>
-        <div class="planSub">~3–4 HRS</div>
+        <div class="planSub">~3-4 HRS</div>
       </div>
 
       <ul class="features">
@@ -79,15 +83,22 @@
         <li class="muted">Booking deposit required</li>
       </ul>
 
-      <button class="chooseBtn filled" type="button" data-package="PAINT RESET" data-price="210">
+      <div class="designFor">Designed For:</div>
+      <ul class="fitList">
+        <li>Dull or lightly scratched finishes</li>
+        <li>Vehicles with swirl marks</li>
+        <li>Clients seeking a noticeable finish upgrade</li>
+      </ul>
+
+      <button class="chooseBtn filled" type="button" data-package="Restore" data-price="210">
         Choose this package
       </button>
     </article>
 
-    <!-- PAINT LOCK -->
-    <article class="planCard">
+    <article class="planCard protectFocus">
       <div class="planTop">
-        <div class="planName">PAINT LOCK</div>
+        <div class="planName">Protect</div>
+        <div class="planLabel">Signature Finish<span class="planLabelFocus">(Ceramic Coating)</span></div>
         <div class="planPrice">
           <span class="amountText">Starting</span>
           <span class="currency">$</span>
@@ -99,18 +110,28 @@
       <ul class="features">
         <li>Includes Paint Reset</li>
         <li>1-step paint correction</li>
-        <li>Ceramic coating</li>
+        <li class="ceramicFocus">(12-Month Professional Ceramic Coating)</li>
         <li>Up to 12 months protection</li>
         <li class="muted">Booking deposit required</li>
       </ul>
 
-      <button class="chooseBtn" type="button" data-package="PAINT LOCK" data-price="300">
+      <div class="designFor">Designed For:</div>
+      <ul class="fitList">
+        <li>New vehicles</li>
+        <li>Recently corrected paint</li>
+        <li>Long-term surface protection</li>
+      </ul>
+
+      <button class="chooseBtn" type="button" data-package="Protect" data-price="350">
         Choose this package
       </button>
     </article>
   </section>
 
-  <!-- ✅ SINGLE Add-ons section (no duplicates) -->
+  <p class="packageMetaNote">
+    Vehicle size adjustment: Coupes &amp; Sedans use standard rate, SUVs &amp; Trucks are +$30. Final pricing is confirmed during consultation.
+  </p>
+
   <section class="addons" aria-label="Interior add-ons" id="addonsSection">
     <div class="addonsHead">
       <h2>Interior Add-Ons</h2>
@@ -123,7 +144,7 @@
           <div class="addonTitle">Interior Essentials</div>
           <div class="addonPrice">$39</div>
         </div>
-        <div class="addonMeta">~30–45 minutes</div>
+        <div class="addonMeta">~30-45 minutes</div>
         <ul class="addonList">
           <li>Full interior vacuum</li>
           <li>Surface wipe-down</li>
@@ -147,7 +168,6 @@
           <li>Detailed crevice cleaning</li>
           <li>Air vent purification (steam)</li>
         </ul>
-        <!-- ✅ ADD THIS LINE -->
         <p class="addonNote">Can be booked alone without an exterior package.</p>
 
         <button class="addonBtn primary" type="button" data-addon="Interior Reset" data-addon-price="99" data-addon-slug="interior-reset">
@@ -177,7 +197,6 @@
     </div>
   </section>
 
-  <!-- Compare table -->
   <section class="compare" aria-label="Compare package features">
     <div class="compareHead">
       <h2>Compare Package Features</h2>
@@ -195,21 +214,21 @@
         <thead>
         <tr>
           <th>Key Features</th>
-          <th>Rinse &amp; Gloss</th>
-          <th>Paint Reset</th>
-          <th>Paint Lock</th>
+          <th>Maintain</th>
+          <th>Restore</th>
+          <th>Protect</th>
         </tr>
         </thead>
         <tbody>
         <tr><td>Hand wash</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Wheels &amp; tires</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         <tr><td>Light decontamination</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Clay bar treatment</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>Paint enhancement polish</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>6-month paint sealant</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-        <tr><td>1-step correction</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
-        <tr><td>Ceramic coating</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
-        <tr><td>Deposit required</td><td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Clay bar treatment</td><td class="no">-</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Paint enhancement polish</td><td class="no">-</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>6-month paint sealant</td><td class="no">-</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>1-step correction</td><td class="no">-</td><td class="no">-</td><td class="yes">✓</td></tr>
+        <tr><td>Ceramic coating</td><td class="no">-</td><td class="no">-</td><td class="yes">✓</td></tr>
+        <tr><td>Deposit required</td><td class="no">-</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         </tbody>
       </table>
     </div>
@@ -221,12 +240,12 @@
   <div class="lux-footer-inner">
     <div class="lux-footer-links">
       <a href="#">Privacy Policy</a>
-      <span>•</span>
+      <span>&bull;</span>
       <a href="#">Terms &amp; Conditions</a>
     </div>
 
     <div class="lux-footer-copy">
-      © 2026 Pure Finish SoCal · All rights reserved
+      &copy; 2026 Pure Finish SoCal &bull; All rights reserved
     </div>
   </div>
 </footer>
